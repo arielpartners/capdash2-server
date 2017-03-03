@@ -1,24 +1,21 @@
-# README
+# Capdash 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails 5 API
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+PostgreSQL: See main README for instructions on setting up postgres (using Docker)
 
-* System dependencies
+## Build
 
-* Configuration
+Run `bundle install` to install gem dependencies
+Run `rails db:setup` and `rails db:migrate` to create and set up database
 
-* Database creation
+## Development server
 
-* Database initialization
+Run `rails server`, navigate to `localhost:3000`
+Run `rails routes` to view endpoints
 
-* How to run the test suite
+## Running Unit tests
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run `rspec spec` to run all unit tests
