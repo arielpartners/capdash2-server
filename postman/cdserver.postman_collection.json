@@ -1,0 +1,39 @@
+{
+	"variables": [],
+	"info": {
+		"name": "capdash2 cdserver endpoints",
+		"_postman_id": "1ef4a167-0c81-3672-c5ad-b1d5ea9b3109",
+		"description": "Collection of capdash2 endpoints for cdserver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Utils",
+			"description": "Various utility endpoints",
+			"item": [
+				{
+					"name": "healthcheck",
+					"request": {
+						"url": "http://{{url}}/healthcheck",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Healthcheck, does not hit database"
+					},
+					"response": []
+				},
+				{
+					"name": "info",
+					"request": {
+						"url": "http://{{url}}/info",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Get version number and server metadata"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
