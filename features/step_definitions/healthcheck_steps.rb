@@ -1,5 +1,5 @@
 Given(/^the capdash system is running$/) do
-  
+  Rails.application.initialized?
 end
 
 When(/^I navigate to the url \/healthcheck$/) do

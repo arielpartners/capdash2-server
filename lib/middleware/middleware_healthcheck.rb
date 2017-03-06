@@ -4,7 +4,7 @@
 # https://thisdata.com/blog/making-a-rails-health-check-that-doesnt-hit-the-database/
 #
 class MiddlewareHealthcheck
-  OK_RESPONSE = [ 204, {}, [] ]
+  NO_CONTENT = [ 204, {}, [] ]
 
   def initialize(app)
     @app = app
@@ -12,7 +12,7 @@ class MiddlewareHealthcheck
 
   def call(env)
     if env['PATH_INFO'.freeze] == '/healthcheck'.freeze
-      return OK_RESPONSE
+      return NO_CONTENT
     else
       @app.call(env)
     end
