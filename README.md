@@ -4,18 +4,19 @@ Ruby on Rails 5 API
 
 ## Dependencies
 
-PostgreSQL: See main README for instructions on setting up postgres (using Docker)
+  * PostgreSQL: See main README for instructions on setting up postgres (using Docker)
 
 ## Build
 
-Run `bundle install` to install gem dependencies
-Run `rails db:setup` and `rails db:migrate` to create and set up database
+  * Run `bundle install` to install gem dependencies
+  * Run `rails db:setup` and `rails db:migrate` to create and set up database
 
 ## Development server
 
-Run `rails server`, navigate to `localhost:3000`
-Run `rails routes` to view endpoints
+  * Run `rails server`, navigate to `localhost:3000`
+  * Run `rails routes` to view endpoints
 
 ## Running tests
 
-Run `rails cucumber` to run cucumber tests
+  * Server must be running
+  * Run `rails cucumber` to run cucumber tests
