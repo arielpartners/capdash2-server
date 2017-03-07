@@ -35,6 +35,7 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'rspec-expectations'
+  gem 'simplecov', :require => false
 end
 
 group :development do
