@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # get 'healthcheck' see middleware_healthcheck.rb
 
-  #get 'info', to: 'diagnostics#info'
+  get 'info', to: 'diagnostics#info'
   # CKS: to Nick this should return something like the below
   # 200
   # {
