@@ -9,6 +9,6 @@ When(/^I navigate to the url \/healthcheck$/) do
 end
 
 Then(/^I should receive the HTTP response$/) do |response_table|
-  data = response_table.hashes
-  expect(last_response.status).to eq(data[0][:code])
+  data = response_table.rows_hash
+  expect(last_response.status).to eq(data['status'].to_i)
 end
