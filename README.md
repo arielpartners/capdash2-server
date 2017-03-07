@@ -20,3 +20,5 @@ Ruby on Rails 5 API
 
   * Server must be running
   * Run `rails cucumber` to run cucumber tests
+  * Run `rails cucumber:html` to print report of cucumber tests to `reports/feature/results/index.html`
+  * After running tests, code coverage report can be found at `reports/feature/coverage/index.html`
