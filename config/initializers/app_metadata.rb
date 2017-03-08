@@ -1,4 +1,4 @@
-module MySite
+module Cdserver
   class Application
     NAME = 'capdash2'
     VERSION = '0.0.1'
