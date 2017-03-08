@@ -14,5 +14,19 @@ Then(/^I should receive the HTTP response$/) do |http_response_table|
 end
 
 Then(/^I should receive the response$/) do |response_table|
-  pending
+  expected_response = response_table.rows_hash
+  if expected_response['hostname'] == '$hostname'
+    expected_response['hostname'] = last_request.host
+  end
+  if expected_response['version'] =='$version'
+    expected_response['version'] = /^(\d+\.)?(\d+\.)?(\d+)$/
+  end
+  body = JSON.parse(last_response.body)
+  expected_response.each do |param, value|
+    if value.is_a? Regexp
+      expect(body[param]).to match(value)
+    else
+      expect(body[param]).to eq(value)
+    end
+  end
 end

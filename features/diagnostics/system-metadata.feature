@@ -7,5 +7,5 @@ Feature: System Metadata
     When I navigate to the url /info
     Then I should receive the response
       | name     | capdash2  |
-      | version  | x.y.z     |
-      | hostname | localhost |
+      | version  | $version  |
+      | hostname | $hostname |

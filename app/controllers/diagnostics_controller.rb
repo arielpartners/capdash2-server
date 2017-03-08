@@ -5,7 +5,7 @@ class DiagnosticsController < ApplicationController
       name: "capdash2",
       version: '0.0.1',
       description: "Shelter Capacity Dashboard",
-      host: request.host,
+      hostname: request.host,
       rails_version: Rails.version,
       rails_environment: Rails.env,
       database_adapter: ActiveRecord::Base.connection.adapter_name
