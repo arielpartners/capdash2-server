@@ -6,9 +6,9 @@ class DiagnosticsController < ApplicationController
       version: MySite::Application::VERSION,
       description: MySite::Application::DESCRIPTION,
       hostname: request.host,
-      rails_version: MySite::Application::RAILS_VERSION,
-      rails_environment: MySite::Application::RAILS_ENVIRONMENT,
-      database_adapter: MySite::Application::DATABASE_ADAPTER
+      rails_version: Rails.version,
+      rails_environment: Rails.env,
+      database_adapter: ActiveRecord::Base.connection.adapter_name
     }
     render json: data
   end
