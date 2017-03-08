@@ -15,11 +15,13 @@ end
 
 Then(/^I should receive the response$/) do |response_table|
   expected_response = response_table.rows_hash
-  if expected_response['hostname'] == '$hostname'
-    expected_response['hostname'] = last_request.host
-  end
-  if expected_response['version'] =='$version'
-    expected_response['version'] = /^(\d+\.)?(\d+\.)?(\d+)$/
+  matchers = {
+    '$hostname' => last_request.host,
+    '$version' => /^(\d+\.)?(\d+\.)?(\d+)$/,
+    '$env' => Rails.env
+  }
+  expected_response.each do |param, value|
+    expected_response[param] = matchers[value] if matchers[value]
   end
   body = JSON.parse(last_response.body)
   expected_response.each do |param, value|

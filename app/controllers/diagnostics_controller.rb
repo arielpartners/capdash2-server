@@ -2,13 +2,13 @@ class DiagnosticsController < ApplicationController
 
   def info
     data = {
-      name: "capdash2",
-      version: '0.0.1',
-      description: "Shelter Capacity Dashboard",
+      name: MySite::Application::NAME,
+      version: MySite::Application::VERSION,
+      description: MySite::Application::DESCRIPTION,
       hostname: request.host,
-      rails_version: Rails.version,
-      rails_environment: Rails.env,
-      database_adapter: ActiveRecord::Base.connection.adapter_name
+      rails_version: MySite::Application::RAILS_VERSION,
+      rails_environment: MySite::Application::RAILS_ENVIRONMENT,
+      database_adapter: MySite::Application::DATABASE_ADAPTER
     }
     render json: data
   end

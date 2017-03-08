@@ -6,6 +6,9 @@ Feature: System Metadata
     Given the capdash system is running
     When I navigate to the url /info
     Then I should receive the response
-      | name     | capdash2  |
-      | version  | $version  |
-      | hostname | $hostname |
+      | name              | capdash2   |
+      | version           | $version   |
+      | hostname          | $hostname  |
+      | rails_version     | 5.0.1      |
+      | rails_environment | $env       |
+      | database_adapter  | PostgreSQL |
