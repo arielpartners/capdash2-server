@@ -10,7 +10,7 @@ Scenario: successful user login
     | email           | password |
     | joeblow@hbo.com | secret   |
   Then I should receive the following response
-    | status | 201            |
+    | status | 201 Created    |
     | jwt    | $validJwtToken |
 
 Scenario: unsuccessful user login, wrong password
