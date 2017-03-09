@@ -2,11 +2,37 @@
 	"variables": [],
 	"info": {
 		"name": "capdash2 cdserver endpoints",
-		"_postman_id": "1ef4a167-0c81-3672-c5ad-b1d5ea9b3109",
+		"_postman_id": "e37ab5fc-b05f-a6cb-21f4-05702a4add06",
 		"description": "Collection of capdash2 endpoints for cdserver",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Auth",
+			"description": "Authentication endpoints",
+			"item": [
+				{
+					"name": "user token",
+					"request": {
+						"url": "http://{{url}}/user_token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"auth\": \n\t{\n\t\t\"email\": \"EMAIL\",\n\t\t\"password\": \"PASSWORD\"\n\t}\n}"
+						},
+						"description": "Get a jwt token with valid email and password"
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Utils",
 			"description": "Various utility endpoints",
