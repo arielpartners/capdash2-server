@@ -8,12 +8,7 @@ When(/^I navigate to the url (.*)$/) do |url|
   get url
 end
 
-Then(/^I should receive the HTTP response$/) do |http_response_table|
-  data = http_response_table.rows_hash
-  expect(last_response.status).to eq(data['status'].to_i)
-end
-
-Then(/^I should receive the response$/) do |response_table|
+Then(/^I should receive the following response$/) do |response_table|
   expected_response = response_table.rows_hash
   matchers = {
     '$hostname' => last_request.host,
@@ -23,9 +18,11 @@ Then(/^I should receive the response$/) do |response_table|
   expected_response.each do |param, value|
     expected_response[param] = matchers[value] if matchers[value]
   end
-  body = JSON.parse(last_response.body)
+  body = JSON.parse(last_response.body) if last_response.body.present?
   expected_response.each do |param, value|
-    if value.is_a? Regexp
+    if param == 'status'
+      expect(last_response.status).to eq(value.split(' ')[0].to_i)
+    elsif value.is_a? Regexp
       expect(body[param]).to match(value)
     else
       expect(body[param]).to eq(value)

@@ -5,6 +5,5 @@ Feature: Healthcheck
 Scenario: Get Healthcheck Endpoints
   Given the capdash system is running
   When I navigate to the url /healthcheck
-  Then I should receive the HTTP response
-    | status      | 204        |
-    | description | No Content |
+  Then I should receive the following response
+    | status      | 204 No Content  |

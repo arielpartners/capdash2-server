@@ -1,6 +1,5 @@
 class DiagnosticsController < ApplicationController
-  before_action :authenticate_user
-
+  
   def info
     data = {
       name: Cdserver::Application::NAME,
