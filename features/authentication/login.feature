@@ -2,21 +2,23 @@ Feature: Login
   As a user,
   I want to log in with my email and password
 
-
 Scenario: successful user login
-  Given I have opened capdash2
+  Given The following user exists in the system
+    | email           | password |
+    | joeblow@hbo.com | secret   |
   When I login as the following user
-    | username        | password |
+    | email           | password |
     | joeblow@hbo.com | secret   |
   Then I should receive the following response
-    | status | 200            |
-    | token  | $validJwtToken |
-
+    | status | 201            |
+    | jwt    | $validJwtToken |
 
 Scenario: unsuccessful user login, wrong password
-  Given I have opened capdash2
+  Given The following user exists in the system
+    | email           | password |
+    | joeblow@hbo.com | secret   |
   When I login as the following user
-    | username        | password  |
+    | email           | password  |
     | joeblow@hbo.com | iforgot   |
   Then I should receive the following response
-    | status | 401 Unauthorized |
+    | status | 404 Not Found |

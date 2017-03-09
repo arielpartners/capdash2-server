@@ -13,7 +13,9 @@ Then(/^I should receive the following response$/) do |response_table|
   matchers = {
     '$hostname' => last_request.host,
     '$version' => /^(\d+\.)?(\d+\.)?(\d+)$/,
-    '$env' => Rails.env
+    '$env' => Rails.env,
+    '$validJwtToken' =>
+      /^[a-zA-Z0-9\-_]+?\.[a-zA-Z0-9\-_]+?\.([a-zA-Z0-9\-_]+)?$/
   }
   expected_response.each do |param, value|
     expected_response[param] = matchers[value] if matchers[value]
