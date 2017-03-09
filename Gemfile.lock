@@ -41,6 +41,7 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
+    bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.12.1)
@@ -78,6 +79,11 @@ GEM
       activesupport (>= 4.1.0)
     i18n (0.8.1)
     json (2.0.3)
+    jwt (1.5.6)
+    knock (2.1.1)
+      bcrypt (~> 3.1)
+      jwt (~> 1.5)
+      rails (>= 4.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -180,6 +186,7 @@ DEPENDENCIES
   byebug
   cucumber-rails
   database_cleaner
+  knock
   listen (~> 3.0.5)
   pg (~> 0.18)
   puma (~> 3.0)
