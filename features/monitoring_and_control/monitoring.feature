@@ -1,5 +1,7 @@
-Feature: As a systems administrator
+Feature: Monitoring
+  As a systems administrator
   I want to know when events of interest occur
+  So that I can monitor the health of the system and generate alerts
 
 Scenario: User Login success
   Given The following user exists in the system
