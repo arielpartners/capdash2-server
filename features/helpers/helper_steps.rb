@@ -24,7 +24,9 @@ end
 
 Given(/^The following user exists in the system$/) do |table|
   user = table.hashes[0]
-  User.create!(email: user['email'], password: user['password'])
+  unless User.exists?(email: user['email'])
+    User.create!(email: user['email'], password: user['password'])
+  end
 end
 
 When(/^I login as the following user$/) do |table|
