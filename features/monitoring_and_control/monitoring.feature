@@ -9,7 +9,9 @@ Scenario: User Login success
   When I login as the following user
     | email           | password |
     | joeblow@hbo.com | secret   |
-  Then I should see the log 'User.login.success:1'
+  Then I should see the log
+    | Level | Message              |
+    | INFO  | User.login.success:1 |
 
 Scenario: User Login success
   Given The following user exists in the system
@@ -19,4 +21,6 @@ Scenario: User Login success
   When I login as the following user
     | email           | password |
     | joeblow@hbo.com | iforgot  |
-  Then I should see the log 'User.login.failure:1'
+  Then I should see the log
+    | Level | Message              |
+    | INFO  | User.login.failure:1 |
