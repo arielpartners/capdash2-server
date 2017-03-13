@@ -1,3 +1,4 @@
+# generates user tokens. includes hook for statsD
 class UserTokenController < Knock::AuthTokenController
   after_action :record_login
 

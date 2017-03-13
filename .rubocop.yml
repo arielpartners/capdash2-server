@@ -2,12 +2,9 @@ AllCops:
   Include:
     - '**/config.ru'
   Exclude:
-    - 'db/*'
+    - 'db/**/*'
     - 'config/**/*'
     - '**/features/support/env.rb'
     - 'script/*'
     - 'spec/*'
     - 'bin/*'
-
-Style/Documentation:
-  Enabled: false

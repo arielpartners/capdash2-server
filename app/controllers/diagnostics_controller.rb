@@ -1,3 +1,4 @@
+# Controller for metadata and other diagnostics
 class DiagnosticsController < ApplicationController
   def info
     data = {
