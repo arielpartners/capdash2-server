@@ -43,6 +43,7 @@ GEM
     arel (7.1.4)
     ast (2.3.0)
     bcrypt (3.1.11)
+    brakeman (3.5.0)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.12.1)
@@ -197,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  brakeman
   byebug
   cucumber-rails
   database_cleaner
