@@ -7,8 +7,7 @@ AllCops:
     - '**/features/support/env.rb'
     - 'script/*'
     - 'spec/*'
+    - 'bin/*'
 
 Style/Documentation:
-  Enabled: false
-Style/StringLiterals:
   Enabled: false
