@@ -25,6 +25,6 @@ Ruby on Rails 5 API
 
 ## Security testing
 
-  * Run `brakeman` for brakeman security testing
+  * Run `brakeman` for brakeman security testing, including some OWASP top 10 issues including XSS and SQL injection.
     * `brakeman -o reports/security/brakeman.html` to save a report
   * For details about Ruby on Rails security, see [OWASP Rails Security](https://www.owasp.org/images/8/89/Rails_Security_2.pdf). Brakeman covers much of this, and more automated security testing will be added according to the guidance found there.
