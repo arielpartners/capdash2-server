@@ -5,7 +5,8 @@ Given(/^the capdash system is running$/) do
 end
 
 Given(/^StatsD is running$/) do
-  StatsD.present? && @existing_log_count = File.readlines('log/statsd.log').count
+  StatsD.present? &&
+    @existing_log_count = File.readlines('log/statsd.log').count
 end
 
 When(/^I navigate to the url (.*)$/) do |url|
@@ -14,7 +15,7 @@ end
 
 Then(/^I should see the log$/) do |table|
   expected_log = table.hashes[0]
-  statsd_log =  File.readlines('log/statsd.log')
+  statsd_log = File.readlines('log/statsd.log')
   expect(statsd_log.count).to eq(@existing_log_count + 1)
   last_log = statsd_log[@existing_log_count]
   level = last_log.split(" ")[3]

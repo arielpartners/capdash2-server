@@ -1,7 +1,7 @@
 module Cdserver
   class Application
-    NAME = 'capdash2'
-    VERSION = '0.0.1'
-    DESCRIPTION = "Shelter Capacity Dashboard"
+    NAME = 'capdash2'.freeze
+    VERSION = '0.0.1'.freeze
+    DESCRIPTION = 'Shelter Capacity Dashboard'.freeze
   end
 end

@@ -1,5 +1,4 @@
 class DiagnosticsController < ApplicationController
-  
   def info
     data = {
       name: Cdserver::Application::NAME,
@@ -12,5 +11,4 @@ class DiagnosticsController < ApplicationController
     }
     render json: data
   end
-
 end
