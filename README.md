@@ -5,6 +5,7 @@ Ruby on Rails 5 API
 ## Dependencies
 
   * PostgreSQL: See main README for instructions on setting up postgres (using Docker)
+  * If you have completed pre-reqs, then you should only need to do: `docker start postgres`
 
 ## Build
 
