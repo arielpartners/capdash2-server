@@ -31,7 +31,7 @@ Ruby on Rails 5 API
 
 ## Logging and Monitoring
 
-Logs for each environment can be found in [`log/`](*/log/)
+Logs for each environment can be found in [`log/`](./log/)
 Example of production log:
 ```
 I, [2017-03-15T16:02:33.560200 #57302]  INFO -- : [StatsD] increment User.login.success:1
