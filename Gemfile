@@ -25,6 +25,7 @@ gem 'puma', '~> 3.0'
 # gem 'rack-cors'
 
 gem 'knock'
+gem 'lograge'
 gem 'statsd-instrument'
 
 group :development, :test do
