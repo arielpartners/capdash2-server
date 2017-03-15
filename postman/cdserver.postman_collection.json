@@ -25,7 +25,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"auth\": \n\t{\n\t\t\"email\": \"EMAIL\",\n\t\t\"password\": \"PASSWORD\"\n\t}\n}"
+							"raw": "{ \"auth\": \n\t{\n\t\t\"email\": \"sample_user@dhs.nyc.gov\",\n\t\t\"password\": \"password\"\n\t}\n}"
 						},
 						"description": "Get a jwt token with valid email and password"
 					},
