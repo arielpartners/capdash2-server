@@ -26,6 +26,7 @@ gem 'puma', '~> 3.0'
 
 gem 'bundler', '~>1.14.5'
 gem 'knock'
+gem 'lograge'
 gem 'statsd-instrument'
 
 group :development, :test do
