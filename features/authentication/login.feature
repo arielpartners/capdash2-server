@@ -1,6 +1,7 @@
 Feature: Login
   As a user,
   I want to log in with my email and password
+  so that I know the system is secure against unauthorized access
 
 Scenario: successful user login
   Given The following user exists in the system
