@@ -15,7 +15,7 @@ Scenario: User Login success
     | Level | Message              |
     | INFO  | User.login.success:1 |
 
-Scenario: User Login success
+Scenario: User Login failure
   Given The following user exists in the system
     | email           | password |
     | joeblow@hbo.com | secret   |
