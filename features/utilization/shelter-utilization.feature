@@ -14,7 +14,7 @@ Feature: Shelter Utilization
   # What about commercial hotels usage?  I assume that is a different feature, even if we want to see that
   # information alongside utilization
 
-  Background
+  Background:
     Given The following shelters exist in the system
       | Group                | Provider                            | Facility                        | Facility Type        | Building            | Street Address      | Borough   | Zip Code | Community District | School District | Capacity |
       | Adult                | Project Renewal                     | East Williamsburg Men's Shelter | Adult Male Shelter   | EW Bldg 1           | 249 Varet Street    | Brooklyn  | 11206    | 301                | 14              | 140      |
@@ -68,27 +68,29 @@ Feature: Shelter Utilization
       | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/10/2016 | 550          |
       | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/11/2016 | 595          |
 
+  @ignore
   Scenario: Average Weekly Per-Shelter Utilization
     When I ask for following average utilization by calendar period
       | Group By | Period Type | Period Ending |
       | Shelter  | Week        | 6/11/2016     |
     Then The system should provide the following average utilization
       | Facility                        | Building            | Street Address      | Period Ending | Average Utilization | Percentage |
-      | East Williamsburg Men's Shelter | EW Bldg 1           | 249 Varet Street    | 06/11/2016    | 107                 | 77%        |
-      | Tillary Women's Shelter         | Building 01         | 200 Tillary Street  | 06/11/2016    | 197                 | 85%        |
-      | Anthony Adult Family Residence  | 1848 Anthony Avenue | 1848 Anthony Avenue | 06/11/2016    | 31                  | 90%        |
-      | Life                            | 78 Catherine Street | 78 Catherine Street | 06/11/2016    | 43                  | 85%        |
-      | Prospect Interfaith             | 730 Kelly Street    | 730 Kelly Street    | 06/11/2016    | 83                  | 90%        |
-      | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/11/2016    | 620                 | 72%        |
+      | East Williamsburg Men's Shelter | EW Bldg 1           | 249 Varet Street    | 06/11/2016    | 108                 | 77%        |
+      | Tillary Women's Shelter         | Building 01         | 200 Tillary Street  | 06/11/2016    | 198                 | 99%        |
+      | Anthony Adult Family Residence  | 1848 Anthony Avenue | 1848 Anthony Avenue | 06/11/2016    | 32                  | 86%        |
+      | Life                            | 78 Catherine Street | 78 Catherine Street | 06/11/2016    | 43                  | 95%        |
+      | Prospect Interfaith             | 730 Kelly Street    | 730 Kelly Street    | 06/11/2016    | 83                  | 95%        |
+      | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/11/2016    | 599                 | 75%        |
 
+  @ignore
   Scenario: Average Weekly Per-Population Group Utilization
     When I ask for the following average utilization by calendar period
       | Group By         | Period Type | Period Ending |
       | Population Group | Week        | 6/11/2016     |
     Then The system should provide the following average utilization
       | Group                | Period Ending | Average Capacity | Average Utilization | Percentage |
-      | Adult Male           | 06/11/2016    | 107              | 107                 | 77%        |
-      | Adult Female         | 06/11/2016    | 107              | 107                 | 77%        |
-      | Adult Family         | 06/11/2016    | 107              | 107                 | 77%        |
-      | Family With Children | 06/11/2016    | 107              | 107                 | 77%        |
-      | Total                | 06/11/2016    | 500              | 498                 | 77%        |
+      | Adult Male           | 06/11/2016    | 140              | 108                 | 77%        |
+      | Adult Female         | 06/11/2016    | 200              | 198                 | 99%        |
+      | Adult Family         | 06/11/2016    | 82               | 75                  | 91%        |
+      | Family With Children | 06/11/2016    | 884              | 683                 | 77%        |
+      | Total                | 06/11/2016    | 1,306            | 1,063               | 81%        |
