@@ -1,5 +1,5 @@
 Feature: Shelter Utilization
-  As a capacity forecasting,
+  As a user,
   I want to know the number of beds and units that were occupied in a shelter on a given date,
   So that I can compare that to the shelter capacity and calculate utilization levels.
 
