@@ -36,10 +36,10 @@ Feature: Shelter Utilization Audit Trail
   Scenario: Get previous version of census
     When I ask for census information
       | Facility                        | Building  | Census Date | As Of Date |
-      | East Williamsburg Men's Shelter | EW Bldg 1 | 06/05/2016  | 06/06/2016 |
+      | East Williamsburg Men's Shelter | EW Bldg 1 | 06/05/2016  | 06/07/2016 |
     Then The system should provide the following census information
       | Facility                        | Building  | Census DateTime   | As Of Date | Census Count | Who Entered |
-      | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 2:00am | today      | 98           | bgramman    |
+      | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 2:00am | 06/07/2016 | 98           | bgramman    |
 
   @ignore
   Scenario: Get census entries by author
