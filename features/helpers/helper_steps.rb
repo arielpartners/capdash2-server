@@ -34,3 +34,7 @@ When(/^I login as the following user$/) do |table|
   body = { auth: { email: user['email'], password: user['password'] } }
   post '/user_token', body
 end
+
+When(/^I navigate to the url (.*)$/) do |url|
+  get url
+end
