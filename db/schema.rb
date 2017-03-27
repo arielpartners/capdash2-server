@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327180638) do
+ActiveRecord::Schema.define(version: 20170327181923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address1"
+    t.string   "street_address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
@@ -23,9 +33,10 @@ ActiveRecord::Schema.define(version: 20170327180638) do
 
   create_table "shelter_buildings", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_shelter_buildings_on_address_id", using: :btree
   end
 
   create_table "shelters", force: :cascade do |t|
