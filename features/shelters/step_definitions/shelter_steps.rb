@@ -5,9 +5,11 @@ Given(/^the following list of shelter units:$/) do |table|
       s.name = unit['Shelter']
     end
     building = ShelterBuilding.find_or_create_by(name: unit['Building'])
+    floor = Floor.find_or_create_by(shelter_building: building,
+                                    name: unit['Floor'])
     Unit.create!(
-        name: unit['Unit'], floor: unit['Floor'], beds: unit['Beds'].to_i,
-        shelter_building: building, shelter: shelter
+      name: unit['Unit'], floor: floor, beds: unit['Beds'].to_i,
+      shelter: shelter
     )
   end
 end

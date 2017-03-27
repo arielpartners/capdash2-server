@@ -8,33 +8,38 @@ kelly = ShelterBuilding.create!(name: '730 Kelly Street')
 ewms = Shelter.create!(name: "East Williamsburg Men's Shelter")
 prospect = Shelter.create!(name: 'Prospect Interfaith')
 
+ew_first_floor = Floor.create!(shelter_building: ew1, name: '1')
+kelly_1fl = Floor.create!(shelter_building: kelly, name: '1')
+kelly_2fl = Floor.create!(shelter_building: kelly, name: '2')
+kelly_3fl = Floor.create!(shelter_building: kelly, name: '3')
+
 single_units = [
-  { name: '1A', floor: '1', beds: 1},
-  { name: '1B', floor: '1', beds: 1},
-  { name: '1C', floor: '1', beds: 1},
-  { name: '1D', floor: '1', beds: 1},
-  { name: '1E', floor: '1', beds: 1},
-  { name: '1F', floor: '1', beds: 1},
-  { name: '1G', floor: '1', beds: 1}
+  { name: '1A', beds: 1},
+  { name: '1B', beds: 1},
+  { name: '1C', beds: 1},
+  { name: '1D', beds: 1},
+  { name: '1E', beds: 1},
+  { name: '1F', beds: 1},
+  { name: '1G', beds: 1}
 ]
 
 single_units.each do |unit|
-  Unit.create!(name:unit[:name], floor: unit[:floor], shelter_building: ew1,
-               shelter: ewms, beds: unit[:beds])
+  Unit.create!(name:unit[:name], floor: ew_first_floor, shelter: ewms,
+               beds: unit[:beds])
 end
 
 family_units = [
-  { name: '1A', floor: '1', beds: 4 },
-  { name: '1B', floor: '1', beds: 4 },
-  { name: '1C', floor: '1', beds: 4 },
-  { name: '2A', floor: '2', beds: 4 },
-  { name: '2B', floor: '2', beds: 4 },
-  { name: '2C', floor: '2', beds: 4 },
-  { name: '3A', floor: '3', beds: 4 },
+  { name: '1A', floor: kelly_1fl, beds: 4 },
+  { name: '1B', floor: kelly_1fl, beds: 4 },
+  { name: '1C', floor: kelly_1fl, beds: 4 },
+  { name: '2A', floor: kelly_2fl, beds: 4 },
+  { name: '2B', floor: kelly_2fl, beds: 4 },
+  { name: '2C', floor: kelly_2fl, beds: 4 },
+  { name: '3A', floor: kelly_3fl, beds: 4 },
 
 ]
 
 family_units.each do |unit|
   Unit.create!(name: unit[:name], floor: unit[:floor], beds: unit[:beds],
-              shelter: prospect, shelter_building: kelly)
+              shelter: prospect)
 end
