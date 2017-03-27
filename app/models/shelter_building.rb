@@ -1,5 +1,5 @@
 # a building that houses shelter units
-class Building < ApplicationRecord
+class ShelterBuilding < ApplicationRecord
   has_many :units
 
   def bed_count

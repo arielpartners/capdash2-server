@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327151131) do
+ActiveRecord::Schema.define(version: 20170327180638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "buildings", force: :cascade do |t|
+  create_table "providers", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "providers", force: :cascade do |t|
+  create_table "shelter_buildings", force: :cascade do |t|
     t.string   "name"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20170327151131) do
     t.string   "name"
     t.integer  "beds"
     t.string   "floor"
-    t.integer  "building_id"
+    t.integer  "shelter_building_id"
     t.integer  "shelter_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["building_id"], name: "index_units_on_building_id", using: :btree
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["shelter_building_id"], name: "index_units_on_shelter_building_id", using: :btree
     t.index ["shelter_id"], name: "index_units_on_shelter_id", using: :btree
   end
 

@@ -2,5 +2,5 @@
 # than one bed, but those beds are not individually tracked within CARES.
 class Unit < ApplicationRecord
   belongs_to :shelter
-  belongs_to :building
+  belongs_to :shelter_building
 end
