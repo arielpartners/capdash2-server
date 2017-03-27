@@ -4,4 +4,5 @@
 # public and private shelters.
 class Shelter < ApplicationRecord
   belongs_to :provider
+  has_many :shelter_buildings
 end

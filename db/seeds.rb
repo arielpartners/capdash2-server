@@ -2,11 +2,12 @@ User.create!(email: "sample_user@dhs.nyc.gov", password: "password")
 User.create!(email: "some_person@dhs.nyc.gov", password: "swordfish")
 User.create!(email: "anotherone@dhs.nyc.gov", password: "example")
 
-ew1 = ShelterBuilding.create!(name: 'EW Bldg 1')
-kelly = ShelterBuilding.create!(name: '730 Kelly Street')
-
 ewms = Shelter.create!(name: "East Williamsburg Men's Shelter")
 prospect = Shelter.create!(name: 'Prospect Interfaith')
+
+ew1 = ShelterBuilding.create!(name: 'EW Bldg 1', shelter: ewms)
+kelly = ShelterBuilding.create!(shelter: prospect, address: Address.new(
+  street_address1: '730 Kelly Street'))
 
 ew_first_floor = Floor.create!(shelter_building: ew1, name: '1')
 kelly_1fl = Floor.create!(shelter_building: kelly, name: '1')

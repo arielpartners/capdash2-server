@@ -1,3 +1,4 @@
+# street address
 class Address < ApplicationRecord
-  belongs_to :shelter_building
+  has_one :shelter_building
 end
