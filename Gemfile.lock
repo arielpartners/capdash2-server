@@ -203,7 +203,7 @@ PLATFORMS
 
 DEPENDENCIES
   brakeman
-  bundler (~> 1.14.5)
+  bundler (~> 1.14.6)
   byebug
   cucumber-rails
   database_cleaner
@@ -222,4 +222,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
