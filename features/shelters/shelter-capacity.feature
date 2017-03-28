@@ -23,19 +23,19 @@ Feature: Shelter Capacity
     Given the following list of shelter units:
       | Unit | Floor | Building  | Shelter ID | Shelter                         | Beds |
       | 1A   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
-      | 1B   | 1     | EW Blgd 1 | 1          | East Williamsburg Men's Shelter | 1    |
-      | 1C   | 1     | EW Blgd 1 | 1          | East Williamsburg Men's Shelter | 1    |
-      | 1D   | 1     | EW Blgd 1 | 1          | East Williamsburg Men's Shelter | 1    |
-      | 1E   | 1     | EW Blgd 1 | 1          | East Williamsburg Men's Shelter | 1    |
-      | 1F   | 1     | EW Blgd 1 | 1          | East Williamsburg Men's Shelter | 1    |
-      | 1G   | 1     | EW Blgd 1 | 1          | East Williamsburg Men's Shelter | 1    |
+      | 1B   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
+      | 1C   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
+      | 1D   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
+      | 1E   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
+      | 1F   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
+      | 1G   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    |
     And the following shelter building information:
       | Building  | Shelter                         | Surge Beds | Population Group | Date Opened   |
-      | EW Blgd 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
-    When I navigate to the following url /shelters/1/buildings/EW-Blgd-1
-    Then I should see the following information
-      | Units | Beds |
-      | 7     | 10   |
+      | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
+    When I navigate to the url /shelters/1/buildings/EW-Bldg-1
+    Then I should receive the following response
+      | units | 7  |
+      | beds  | 10 |
 
     @ignore
   Scenario: Family multi-floor shelter
@@ -49,6 +49,6 @@ Feature: Shelter Capacity
       | 2C   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    |
       | 3A   | 3     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    |
     When I navigate to the url /shelters/2/buildings/730-Kelly-Street
-    Then I should see the following information
-      | Units | Beds |
-      | 7     | 28   |
+    Then I should receive the following response
+      | units | 7  |
+      | beds  | 28 |

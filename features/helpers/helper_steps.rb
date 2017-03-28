@@ -17,7 +17,7 @@ Then(/^I should receive the following response$/) do |response_table|
     elsif value.is_a? Regexp
       expect(body[param]).to match(value)
     else
-      expect(body[param]).to eq(value)
+      expect(body[param].to_s).to eq(value)
     end
   end
 end

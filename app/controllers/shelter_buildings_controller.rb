@@ -1,6 +1,7 @@
 class ShelterBuildingsController < ApplicationController
   def show
-    building = ShelterBuilding.find_by(shelter_id: params[:shelter_id], slug: params[:id])
+    slug = params[:id].parameterize
+    building = ShelterBuilding.find_by(shelter_id: params[:shelter_id], slug: slug)
     if building
       view = {
         name: building.name,
