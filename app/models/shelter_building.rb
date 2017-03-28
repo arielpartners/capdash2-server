@@ -5,6 +5,8 @@ class ShelterBuilding < ApplicationRecord
   belongs_to :address
   belongs_to :shelter, required: true
 
+  validates :slug, uniqueness: true
+
   after_initialize :ensure_name
   before_save :create_slug
 
