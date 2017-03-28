@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   # get 'healthcheck' see middleware_healthcheck.rb
 
   get 'info', to: 'diagnostics#info'
+
+  resources :shelters, only: [:show] do
+    resources :buildings, controller: 'shelter_buildings', only: [:show]
+  end
 end

@@ -17,7 +17,7 @@ Then(/^I should receive the following response$/) do |response_table|
     elsif value.is_a? Regexp
       expect(body[param]).to match(value)
     else
-      expect(body[param]).to eq(value)
+      expect(body[param].to_s).to eq(value)
     end
   end
 end
@@ -33,4 +33,8 @@ When(/^I login as the following user$/) do |table|
   user = table.hashes[0]
   body = { auth: { email: user['email'], password: user['password'] } }
   post '/user_token', body
+end
+
+When(/^I navigate to the url (.*)$/) do |url|
+  get url
 end

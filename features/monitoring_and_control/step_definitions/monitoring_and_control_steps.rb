@@ -9,10 +9,6 @@ Given(/^StatsD is running$/) do
     @existing_log_count = File.readlines('log/statsd.log').count
 end
 
-When(/^I navigate to the url (.*)$/) do |url|
-  get url
-end
-
 Then(/^I should see the log$/) do |table|
   expected_log = table.hashes[0]
   statsd_log = File.readlines('log/statsd.log')
