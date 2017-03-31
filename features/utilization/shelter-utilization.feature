@@ -5,7 +5,7 @@ Feature: Shelter Utilization
 
   Background:
     Given The following shelters exist in the system
-      | Population Group     | Provider                            | Shelter                         | shelter Type         | Building            | Street Address      | Borough   | Zip Code | Units |
+      | Population Group     | Provider                            | Shelter                         | Shelter Type         | Building            | Street Address      | Borough   | Zip Code | Units |
       | Adult Male           | Project Renewal                     | East Williamsburg Men's Shelter | Adult Male Shelter   | EW Bldg 1           | 249 Varet Street    | Brooklyn  | 11206    | 140   |
       | Adult Female         | Institute for Community Living      | Tillary Women's Shelter         | Adult Female Shelter | Building 01         | 200 Tillary Street  | Brooklyn  | 11201    | 200   |
       | Adult Family         | Samaritan Village                   | Anthony Adult Family Residence  | Adult Shelter        | 1848 Anthony Avenue | 1848 Anthony Avenue | Bronx     | 10457    |  37   |

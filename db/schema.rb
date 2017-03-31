@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328142922) do
+ActiveRecord::Schema.define(version: 20170331032241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20170328142922) do
     t.string   "zip"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "censuses", force: :cascade do |t|
+    t.integer  "shelter_building_id"
+    t.datetime "observed_for"
+    t.integer  "count"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.float    "utilization"
+    t.index ["shelter_building_id"], name: "index_censuses_on_shelter_building_id", using: :btree
   end
 
   create_table "floors", force: :cascade do |t|

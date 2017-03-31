@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'info', to: 'diagnostics#info'
 
+  post 'utilization', to: 'censuses#utilization'
+
   resources :shelters, only: [:show] do
     resources :buildings, controller: 'shelter_buildings', only: [:show]
   end
