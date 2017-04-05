@@ -2,6 +2,7 @@
 class ShelterBuilding < Compartment
   has_many :floors
   has_many :units, through: :floors
+  has_many :beds, through: :floors
   has_many :censuses
   belongs_to :address
   belongs_to :shelter, required: true
