@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405160505) do
+ActiveRecord::Schema.define(version: 20170405201410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,13 @@ ActiveRecord::Schema.define(version: 20170405160505) do
   end
 
   create_table "beds", force: :cascade do |t|
-    t.integer  "floor_id"
-    t.string   "name"
     t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "number"
+    t.integer  "compartment_id"
+    t.string   "compartment_type"
+    t.index ["compartment_type", "compartment_id"], name: "index_beds_on_compartment_type_and_compartment_id", using: :btree
   end
 
   create_table "censuses", force: :cascade do |t|
@@ -81,7 +83,6 @@ ActiveRecord::Schema.define(version: 20170405160505) do
 
   create_table "units", force: :cascade do |t|
     t.string   "name"
-    t.integer  "beds"
     t.integer  "shelter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

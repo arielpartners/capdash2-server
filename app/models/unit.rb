@@ -3,4 +3,5 @@
 class Unit < Compartment
   belongs_to :shelter
   belongs_to :floor
+  has_many :beds, as: :compartment
 end

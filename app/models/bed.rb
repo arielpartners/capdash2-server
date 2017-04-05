@@ -1,3 +1,3 @@
 class Bed < Compartment
-  belongs_to :floor
+  belongs_to :compartment, polymorphic: true
 end

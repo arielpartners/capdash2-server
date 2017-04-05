@@ -22,7 +22,7 @@ Given(/^The following shelters exist in the system$/) do |table|
         Unit.create!(
           shelter: shelter,
           name: i,
-          beds: 1,
+          beds: [Bed.new],
           floor: floor
         )
       end
