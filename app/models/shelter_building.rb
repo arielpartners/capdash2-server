@@ -1,5 +1,5 @@
 # a building that houses shelter units
-class ShelterBuilding < ApplicationRecord
+class ShelterBuilding < Compartment
   has_many :floors
   has_many :units, through: :floors
   has_many :censuses
