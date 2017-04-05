@@ -13,21 +13,19 @@ class ShelterBuilding < Compartment
   before_save :create_slug
 
   def bed_count(include_surge = false)
-    beds = self.units.sum(:beds)
-    if include_surge && surge_beds
-      beds + surge_beds
-    else
-      beds
-    end
+    count = beds.any? ? beds.count : units.sum(:beds)
+    count += surge_beds if include_surge && surge_beds
+    count
   end
 
   private
 
   def ensure_name
-    self.name ||= address.street_address1
+    return unless name.nil? && address
+    self.name = address.street_address1
   end
 
   def create_slug
-    self.slug = self.name.parameterize
+    self.slug = name.parameterize
   end
 end
