@@ -11,6 +11,8 @@ require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require_relative "../lib/middleware/log_middleware"
+require_relative "../lib/middleware/middleware_healthcheck"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -27,7 +29,7 @@ module Cdserver
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_after 'Rails::Rack::Logger', 'MiddlewareHealthcheck'
-    config.middleware.use 'LogMiddleware'
+    config.middleware.insert_after Rails::Rack::Logger, MiddlewareHealthcheck
+    config.middleware.use LogMiddleware
   end
 end
