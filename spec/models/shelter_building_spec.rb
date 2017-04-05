@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe ShelterBuilding, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'defaults name to first street address line' do
+    address = Address.new(
+      street_address1: '33 Beaver St',
+      city: 'New York',
+      state: 'NY',
+      zip: '10004'
+    )
+    shelter_building = ShelterBuilding.create(address: address)
+    expect(shelter_building.name).to eq(address.street_address1)
+  end
 end
