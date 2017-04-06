@@ -26,7 +26,7 @@ class ShelterBuilding < Compartment
 
   def ensure_name
     return unless name.nil? && address
-    self.name = address.street_address1
+    self.name = "#{address.street_number} #{address.street_name}"
   end
 
   def ensure_surge_bed_value
