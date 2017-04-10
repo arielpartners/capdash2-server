@@ -10,29 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405201410) do
+ActiveRecord::Schema.define(version: 20170410185219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "street_address1"
-    t.string   "street_address2"
+    t.string   "street_number"
+    t.string   "street_name"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "beds", force: :cascade do |t|
-    t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "number"
-    t.integer  "compartment_id"
-    t.string   "compartment_type"
-    t.index ["compartment_type", "compartment_id"], name: "index_beds_on_compartment_type_and_compartment_id", using: :btree
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "borough"
   end
 
   create_table "censuses", force: :cascade do |t|
@@ -51,6 +42,17 @@ ActiveRecord::Schema.define(version: 20170405201410) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["shelter_building_id"], name: "index_floors_on_shelter_building_id", using: :btree
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "compartment_id"
+    t.integer  "compartment_type"
+    t.integer  "bed_count"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["compartment_id", "compartment_type"], name: "index_places_on_compartment_id_and_compartment_type", using: :btree
   end
 
   create_table "providers", force: :cascade do |t|
@@ -79,17 +81,6 @@ ActiveRecord::Schema.define(version: 20170405201410) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["provider_id"], name: "index_shelters_on_provider_id", using: :btree
-  end
-
-  create_table "units", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "shelter_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "floor_id"
-    t.string   "status"
-    t.index ["floor_id"], name: "index_units_on_floor_id", using: :btree
-    t.index ["shelter_id"], name: "index_units_on_shelter_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

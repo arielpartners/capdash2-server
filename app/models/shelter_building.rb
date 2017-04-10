@@ -1,5 +1,5 @@
 # a building that houses shelter units
-class ShelterBuilding < Compartment
+class ShelterBuilding < ApplicationRecord
   has_many :floors
   has_many :units, through: :floors
   has_many :floor_beds, through: :floors, source: :beds
