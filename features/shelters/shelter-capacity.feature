@@ -22,13 +22,13 @@ Feature: Shelter Capacity
   Scenario: Adult shelter with many beds in large open area
     Given the following list of shelter units:
       | Bed  | Floor | Building  | Shelter ID | Shelter                         | Beds | Population Group |
-      | 1A   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
-      | 1B   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
-      | 1C   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
-      | 1D   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
-      | 1E   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
-      | 1F   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
-      | 1G   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 2    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 3    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 4    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 5    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 6    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 7    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
     And the following shelter building information:
       | Building  | Shelter                         | Surge Beds | Population Group | Date Opened   |
       | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
