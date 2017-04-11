@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>RailsDependency</ID>
+  <OriginalElement>Bed</OriginalElement>
+  <nodes>
+    <node x="140.0" y="169.58499999999998">Place</node>
+    <node x="1371.5" y="0.0">User</node>
+    <node x="0.0" y="145.58499999999998">Unit</node>
+    <node x="1001.0" y="52.375">Census</node>
+    <node x="719.0" y="132.64499999999998">ShelterBuilding</node>
+    <node x="1.0" y="215.58499999999998">Bed</node>
+    <node x="1563.0" y="203.625">ApplicationRecord</node>
+    <node x="419.5" y="68.33499999999998">Floor</node>
+    <node x="1323.0" y="243.625">Provider</node>
+    <node x="1032.0" y="214.375">Shelter</node>
+    <node x="391.0" y="224.70999999999998">Address</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ShelterBuilding" target="ApplicationRecord">
+      <point x="101.0" y="12.0" />
+      <point x="1001.0" y="203.875" />
+      <point x="1483.0" y="203.875" />
+      <point x="-73.0" y="-1.875" />
+    </edge>
+    <edge source="Shelter" target="Provider">
+      <point x="90.0" y="18.5" />
+      <point x="-80.0" y="-0.0" />
+    </edge>
+    <edge source="Shelter" target="ApplicationRecord">
+      <point x="90.0" y="-18.5" />
+      <point x="1483.0" y="233.125" />
+      <point x="-73.0" y="1.875" />
+    </edge>
+    <edge source="User" target="ApplicationRecord">
+      <point x="31.5" y="-0.0" />
+      <point x="1483.0" y="15.0" />
+      <point x="-73.0" y="-13.125" />
+    </edge>
+    <edge source="Address" target="ApplicationRecord">
+      <point x="124.0" y="13.0" />
+      <point x="719.0" y="306.125" />
+      <point x="1483.0" y="306.125" />
+      <point x="-73.0" y="9.375" />
+    </edge>
+    <edge source="Place" target="ApplicationRecord">
+      <point x="85.5" y="13.0" />
+      <point x="391.0" y="319.75" />
+      <point x="1483.0" y="319.75" />
+      <point x="-73.0" y="13.125" />
+    </edge>
+    <edge source="Provider" target="ApplicationRecord">
+      <point x="80.0" y="-0.0" />
+      <point x="-73.0" y="5.625" />
+    </edge>
+    <edge source="Floor" target="ShelterBuilding">
+      <point x="95.5" y="18.5" />
+      <point x="639.0" y="123.835" />
+      <point x="-101.0" y="-24.0" />
+    </edge>
+    <edge source="ShelterBuilding" target="Shelter">
+      <point x="101.0" y="36.0" />
+      <point x="1001.0" y="251.375" />
+      <point x="-90.0" y="-0.0" />
+    </edge>
+    <edge source="Census" target="ApplicationRecord">
+      <point x="121.0" y="-0.0" />
+      <point x="1483.0" y="122.875" />
+      <point x="-73.0" y="-5.625" />
+    </edge>
+    <edge source="Floor" target="ApplicationRecord">
+      <point x="95.5" y="-18.5" />
+      <point x="639.0" y="86.835" />
+      <point x="719.0" y="40.5" />
+      <point x="1483.0" y="40.5" />
+      <point x="-73.0" y="-9.375" />
+    </edge>
+    <edge source="Place" target="Floor">
+      <point x="85.5" y="-13.0" />
+      <point x="391.0" y="105.335" />
+      <point x="-95.5" y="-0.0" />
+    </edge>
+    <edge source="Unit" target="Place">
+      <point x="30.0" y="-0.0" />
+      <point x="-85.5" y="-13.0" />
+    </edge>
+    <edge source="ShelterBuilding" target="Census">
+      <point x="101.0" y="-12.0" />
+      <point x="-121.0" y="35.25" />
+    </edge>
+    <edge source="Address" target="ShelterBuilding">
+      <point x="124.0" y="-13.0" />
+      <point x="-101.0" y="24.0" />
+    </edge>
+    <edge source="Census" target="ShelterBuilding">
+      <point x="-121.0" y="-35.25" />
+      <point x="101.0" y="-36.0" />
+    </edge>
+    <edge source="Bed" target="Place">
+      <point x="29.0" y="-0.0" />
+      <point x="-85.5" y="13.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5962984384037016" x="854.5" y="160.0" />
+  <SelectedNodes>
+    <node>Bed</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Association fields</Category>
+    <Category>Migration fields</Category>
+  </Categories>
+</Diagram>
+
