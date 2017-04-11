@@ -21,14 +21,14 @@ Feature: Shelter Capacity
   @ignore
   Scenario: Adult shelter with many beds in large open area
     Given the following list of shelter units:
-      | Unit | Floor | Building  | Shelter ID | Shelter                         | Beds | Shelter Type |
-      | 1A   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
-      | 1B   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
-      | 1C   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
-      | 1D   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
-      | 1E   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
-      | 1F   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
-      | 1G   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult |
+      | Bed  | Floor | Building  | Shelter ID | Shelter                         | Beds | Population Group |
+      | 1A   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1B   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1C   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1D   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1E   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1F   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
+      | 1G   | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter | 1    | Single Adult     |
     And the following shelter building information:
       | Building  | Shelter                         | Surge Beds | Population Group | Date Opened   |
       | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
@@ -40,14 +40,14 @@ Feature: Shelter Capacity
     @ignore
   Scenario: Family multi-floor shelter
     Given the following list of shelter units:
-      | Unit | Floor | Building         | Shelter ID | Shelter              | Beds | Shelter Type |
-      | 1A   | 1     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
-      | 1B   | 1     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
-      | 1C   | 1     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
-      | 2A   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
-      | 2B   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
-      | 2C   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
-      | 3A   | 3     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family       |
+      | Unit | Floor | Building         | Shelter ID | Shelter              | Beds | Population Group     |
+      | 1A   | 1     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
+      | 1B   | 1     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
+      | 1C   | 1     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
+      | 2A   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
+      | 2B   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
+      | 2C   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
+      | 3A   | 3     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    | Family with Children |
     When I navigate to the url /shelters/2/buildings/730-Kelly-Street
     Then I should receive the following response
       | units | 7  |
