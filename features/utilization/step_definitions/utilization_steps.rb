@@ -22,13 +22,11 @@ Given(/^The following shelters exist in the system$/) do |table|
     )
     floor = building.floors.create!(name: '1')
     Unit.transaction do
-      entry['Units'].to_i.times do |i|
-        Unit.create!(
-          shelter: shelter,
-          name: i,
-          beds: [Bed.new],
-          floor: floor
-        )
+      n = entry['Units'].to_i
+      if entry['Population Group'].include?('Family')
+        n.times { Unit.create!(name: n, compartment: floor) }
+      else
+        n.times { Bed.create!(name: n, compartment: floor) }
       end
     end
   end
