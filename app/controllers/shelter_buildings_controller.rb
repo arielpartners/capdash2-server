@@ -7,7 +7,7 @@ class ShelterBuildingsController < ApplicationController
         name: building.name,
         beds: building.bed_count(true),
         shelter: building.shelter.name,
-        units: building.units.count
+        units: building.places.count
       }
       render json: view
     else

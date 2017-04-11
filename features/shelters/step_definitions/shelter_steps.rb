@@ -8,9 +8,11 @@ Given(/^the following list of shelter units:$/) do |table|
                                                   shelter: shelter)
     floor = Floor.find_or_create_by!(shelter_building: building,
                                      name: entry['Floor'])
-    unit = Unit.create!(name: entry['Unit'], floor: floor, shelter: shelter)
-    entry['Beds'].to_i.times do
-      Bed.create!(compartment: unit)
+    if entry['Shelter Type'] == 'Single Adult'
+      Bed.create!(name: entry['Unit'], compartment: floor)
+    elsif entry['Shelter Type'] == 'Family'
+      Unit.create!(name: entry['Unit'], compartment: floor,
+                   bed_count: entry['Beds'])
     end
   end
 end
