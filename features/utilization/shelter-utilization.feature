@@ -13,7 +13,7 @@ Feature: Shelter Utilization
       | Family with Children | Homes for the Homeless              | Prospect Interfaith             | Family Tier 2        | 730 Kelly Street    | 730 Kelly Street    | Bronx     | 10455    |  88   |
       | Family With Children | Acacia Network Housing, Inc.        | Bronx Acacia Cluster II         | Family Cluster       | 819 East 178 Street | 819 East 178 Street | Bronx     | 10460    | 796   |
     And The following census information exists in the system
-      | Shelter                         | Building            | Street Address      | Business Date | Occupied |
+      | Shelter                         | Building            | Street Address      | Shelter Date | Occupied |
       | East Williamsburg Men's Shelter | EW Bldg 1           | 249 Varet Street    | 06/05/2016    | 100      |
       | East Williamsburg Men's Shelter | EW Bldg 1           | 249 Varet Street    | 06/06/2016    | 104      |
       | East Williamsburg Men's Shelter | EW Bldg 1           | 249 Varet Street    | 06/07/2016    | 98       |
