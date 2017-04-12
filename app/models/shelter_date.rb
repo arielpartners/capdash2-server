@@ -1,13 +1,21 @@
 class ShelterDate
-  attr_reader :date
+  include Comparable
+  attr_reader :time
 
   def initialize(time)
-    @actual_time = time
-    @date = time.hour < 3 ? time.to_date - 1.day : time.to_date
+    @time = time
   end
 
   def to_s
     date.to_s
+  end
+
+  def date_cutoff(hour)
+    time.hour < hour ? time.to_date - 1.day : time.to_date
+  end
+
+  def <=>(other)
+    time <=> other.time
   end
 
   def self.parse(timestr)
