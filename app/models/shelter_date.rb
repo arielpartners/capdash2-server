@@ -9,4 +9,9 @@ class ShelterDate
   def to_s
     date.to_s
   end
+
+  def self.parse(timestr)
+    time = DateTime.parse(timestr)
+    new(time)
+  end
 end
