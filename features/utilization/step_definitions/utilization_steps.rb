@@ -36,7 +36,7 @@ Given(/^The following census information exists in the system$/) do |table|
     building = ShelterBuilding.find_by(name: entry['Building'])
     Census.create!(
       count: entry['Occupied'],
-      observed_for: DateTime.parse(entry['Business Date']),
+      shelter_date: ShelterDate.new(DateTime.parse(entry['Business Date'])),
       shelter_building: building
     )
   end
