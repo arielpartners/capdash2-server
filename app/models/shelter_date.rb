@@ -1,25 +1,19 @@
 class ShelterDate
   include Comparable
-  attr_reader :time
+  attr_reader :date, :cutoff
 
-  def initialize(time)
-    @time = time
+  def initialize(datetime, cutoff)
+    @cutoff = cutoff
+    datetime = DateTime.parse(datetime) if datetime.is_a? String
+    @date = datetime.hour < cutoff ? datetime.to_date - 1.day : datetime.to_date
   end
 
   def to_s
     date.to_s
   end
 
-  def date_cutoff(hour)
-    time.hour < hour ? time.to_date - 1.day : time.to_date
-  end
-
   def <=>(other)
-    time <=> other.time
-  end
-
-  def self.parse(timestr)
-    time = DateTime.parse(timestr)
-    new(time)
+    return nil unless other
+    date <=> other.date
   end
 end
