@@ -1,6 +1,7 @@
 class Census < ApplicationRecord
   belongs_to :shelter_building, required: true
 
+  serialize :shelter_date
   before_save :calculate_utilization
 
   def self.utilization_averages
