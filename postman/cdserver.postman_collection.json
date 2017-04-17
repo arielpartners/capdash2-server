@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "capdash2 cdserver endpoints",
-		"_postman_id": "e37ab5fc-b05f-a6cb-21f4-05702a4add06",
+		"_postman_id": "96bac4d4-cd75-9892-5fc1-68a0e2802d60",
 		"description": "Collection of capdash2 endpoints for cdserver",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -34,6 +34,90 @@
 			]
 		},
 		{
+			"name": "Providers",
+			"description": "",
+			"item": [
+				{
+					"name": "providers index",
+					"request": {
+						"url": "{{url}}/providers",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "show provider",
+					"request": {
+						"url": "{{url}}/providers/project-renewal",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shelter Buildings",
+			"description": "",
+			"item": [
+				{
+					"name": "shelter buildings index",
+					"request": {
+						"url": "{{url}}/shelter_buildings",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "show shelter building",
+					"request": {
+						"url": "{{url}}/shelters/1/buildings/ew-bldg-1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "nested within shelter"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shelters",
+			"description": "",
+			"item": [
+				{
+					"name": "shelters index",
+					"request": {
+						"url": "{{url}}/shelters",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get shelters for a provider",
+					"request": {
+						"url": "{{url}}/shelters?provider=project-renewal",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Utils",
 			"description": "Various utility endpoints",
 			"item": [
@@ -43,7 +127,10 @@
 						"url": "http://{{url}}/healthcheck",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "Healthcheck, does not hit database"
 					},
 					"response": []
@@ -54,7 +141,10 @@
 						"url": "http://{{url}}/info",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "Get version number and server metadata"
 					},
 					"response": []

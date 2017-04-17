@@ -42,6 +42,6 @@ class Census < ApplicationRecord
   private
 
   def calculate_utilization
-    self.utilization = (self.count.to_f / self.shelter_building.places.count.to_f).round(3)
+    self.utilization = (count.to_f / shelter_building.places.count).round(3)
   end
 end

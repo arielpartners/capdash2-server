@@ -14,4 +14,9 @@ class ShelterBuildingsController < ApplicationController
       render status: 404
     end
   end
+
+  def index
+    @shelter_buildings = ShelterBuilding.all
+    render json: @shelter_buildings
+  end
 end
