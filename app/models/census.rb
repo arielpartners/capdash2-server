@@ -11,8 +11,7 @@ class Census < ApplicationRecord
       shelters.name as shelter,
       c.percentage,
       c.avg_utilization,
-      addresses.street_number,
-      addresses.street_name
+      addresses.line1
     FROM (
       SELECT shelter_building_id,
       avg(utilization) as percentage,
@@ -32,7 +31,7 @@ class Census < ApplicationRecord
       {
         facility: result.shelter,
         building: result.building,
-        address: "#{result.street_number} #{result.street_name}",
+        address: result.line1,
         average_utilization: result.avg_utilization.round,
         percentage: (result.percentage * 100).round
       }

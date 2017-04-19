@@ -68,8 +68,7 @@ end
 Given(/^Shelters buildings in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
-    addr = entry['Street Address'].split(' ')
-    address = Address.new(street_number: addr[0], street_name: addr[1..-1].join,
+    address = Address.new(line1: entry['Street Address'],
                           borough: entry['Borough'], zip: entry['Zip Code'])
     provider = Provider.new(name: entry['Provider'])
     shelter = Shelter.new(name: entry['Shelter'], provider: provider)

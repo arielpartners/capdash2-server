@@ -4,8 +4,7 @@ User.create!(email: "anotherone@dhs.nyc.gov", password: "example")
 
 samaritan = Provider.create!(name: 'Samaritan Village')
 bfc = Shelter.create!(name: 'Boulevard Family Center', provider: samaritan)
-a1 = Address.create!(street_number: '79-00', street_name: 'Queens Boulevard',
-                borough: 'Queens', city: 'Elmhurst', state: 'NY', zip: '11373')
+a1 = Address.create!(line1: '79-00 Queens Boulevard', borough: 'Queens', city: 'Elmhurst', state: 'NY', zip: '11373')
 ShelterBuilding.create!(
   address: a1, shelter: bfc, surge_beds: 5,
   population_group: 'Family with Children'
@@ -13,8 +12,7 @@ ShelterBuilding.create!(
 
 acacia = Provider.create!(name: 'ACACIA NETWORK HOUSING INC')
 bac2 = Shelter.create!(name: 'BRONX ACACIA CLUSTER II', provider: acacia)
-a2 = Address.create!(street_number: '1231', street_number: 'Sheridan Avenue',
-                    borough: 'Bronx', city: 'Bronx', state: 'NY', zip: '10456')
+a2 = Address.create!(line1: '1231 Sheridan Avenue', borough: 'Bronx', city: 'Bronx', state: 'NY', zip: '10456')
 ShelterBuilding.create!(
   address: a2, shelter: bac2, surge_beds: 3. population_group: 'Family with Children'
 )

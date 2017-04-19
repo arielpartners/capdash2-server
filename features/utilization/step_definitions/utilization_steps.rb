@@ -1,12 +1,8 @@
 Given(/^The following shelters exist in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
-    address = entry['Street Address'].split(' ')
-    street_number = address[0]
-    street_name = address[1..-1].join(' ')
     address = Address.create!(
-      street_number: street_number,
-      street_name: street_name,
+      line1: entry['Street Address'],
       city: entry['Borough'],
       zip: entry['Zip Code']
     )

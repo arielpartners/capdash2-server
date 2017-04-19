@@ -21,7 +21,7 @@ class ShelterBuilding < ApplicationRecord
 
   def ensure_name
     return unless name.nil? && address
-    self.name = "#{address.street_number} #{address.street_name}"
+    self.name = address.line1
   end
 
   def ensure_surge_bed_value
