@@ -2,15 +2,23 @@ User.create!(email: "sample_user@dhs.nyc.gov", password: "password")
 User.create!(email: "some_person@dhs.nyc.gov", password: "swordfish")
 User.create!(email: "anotherone@dhs.nyc.gov", password: "example")
 
-renewal = Provider.create!(name: 'Project Renewal')
-hfth = Provider.create!(name: 'Homes for the Homelss')
+samaritan = Provider.create!(name: 'Samaritan Village')
+bfc = Shelter.create!(name: 'Boulevard Family Center', provider: samaritan)
+a1 = Address.create!(street_number: '79-00', street_name: 'Queens Boulevard',
+                borough: 'Queens', city: 'Elmhurst', state: 'NY', zip: '11373')
+ShelterBuilding.create!(
+  address: a1, shelter: bfc, surge_beds: 5,
+  population_group: 'Family with Children'
+)
 
-ewms = Shelter.create!(name: "East Williamsburg Men's Shelter", provider: renewal)
-prospect = Shelter.create!(name: 'Prospect Interfaith', provider: hfth)
+acacia = Provider.create!(name: 'ACACIA NETWORK HOUSING INC')
+bac2 = Shelter.create!(name: 'BRONX ACACIA CLUSTER II', provider: acacia)
+a2 = Address.create!(street_number: '1231', street_number: 'Sheridan Avenue',
+                    borough: 'Bronx', city: 'Bronx', state: 'NY', zip: '10456')
+ShelterBuilding.create!(
+  address: a2, shelter: bac2, surge_beds: 3. population_group: 'Family with Children'
+)
 
-ew1 = ShelterBuilding.create!(name: 'EW Bldg 1', shelter: ewms)
-kelly = ShelterBuilding.create!(shelter: prospect, address: Address.new(
-  street_number: '730', street_name: 'Kelly Street'))
 
 ew_first_floor = Floor.create!(shelter_building: ew1, name: '1')
 kelly_1fl = Floor.create!(shelter_building: kelly, name: '1')
