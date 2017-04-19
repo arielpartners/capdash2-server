@@ -3,7 +3,7 @@ User.create!(email: "some_person@dhs.nyc.gov", password: "swordfish")
 User.create!(email: "anotherone@dhs.nyc.gov", password: "example")
 
 renewal = Provider.create!(name: 'Project Renewal')
-hfth = Provider.create!(name: 'Homes for the Homelss')
+hfth = Provider.create!(name: 'Homes for the Homeless')
 
 ewms = Shelter.create!(name: "East Williamsburg Men's Shelter", provider: renewal)
 prospect = Shelter.create!(name: 'Prospect Interfaith', provider: hfth)
