@@ -79,7 +79,7 @@
 				{
 					"name": "show shelter building",
 					"request": {
-						"url": "{{url}}/shelters/1/buildings/ew-bldg-1",
+						"url": "{{url}}/shelters/1/buildings/79-00-queens-boulevard",
 						"method": "GET",
 						"header": [],
 						"body": {},
