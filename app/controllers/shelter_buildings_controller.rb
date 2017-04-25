@@ -10,7 +10,7 @@ class ShelterBuildingsController < ApplicationController
   end
 
   def index
-    @shelter_buildings = ShelterBuilding.includes(:address)
+    @shelter_buildings = ShelterBuilding.includes(:address, :floors, :places)
     render json: @shelter_buildings
   end
 end

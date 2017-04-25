@@ -18,7 +18,6 @@ Feature: Shelter Capacity
   # that way we can avoid exposing UUID or database indexes to the outside world, unless we need to.
   #
 
-  @ignore
   Scenario: Adult shelter with many beds in large open area
     Given the following list of shelter beds:
       | Bed  | Floor | Building  | Shelter ID | Shelter                         |
@@ -34,10 +33,8 @@ Feature: Shelter Capacity
       | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
     When I navigate to the url /shelters/1/buildings/EW-Bldg-1
     Then I should receive the following response
-      | units | 7  |
       | beds  | 10 |
 
-    @ignore
   Scenario: Family multi-floor shelter
     Given the following list of shelter units:
       | Unit | Floor | Building         | Shelter ID | Shelter              | Beds |

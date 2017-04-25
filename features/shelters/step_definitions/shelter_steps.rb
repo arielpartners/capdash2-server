@@ -1,4 +1,4 @@
-Given(/^the following list of shelter units:$/) do |table|
+Given(/^the following list of shelter (.*):$/) do |type, table|
   entries = table.hashes
   entries.each do |entry|
     shelter = Shelter.find_or_create_by!(id: entry['Shelter ID']) do |s|
@@ -8,11 +8,11 @@ Given(/^the following list of shelter units:$/) do |table|
                                                   shelter: shelter)
     floor = Floor.find_or_create_by!(shelter_building: building,
                                      name: entry['Floor'])
-    if entry['Population Group'].include?('Family')
+    if type == 'units'
       Unit.create!(name: entry['Unit'], compartment: floor,
                    bed_count: entry['Beds'])
     else
-      Bed.create!(name: entry['Bed'], compartment: floor)
+      Bed.create!(name: entry['Unit'], compartment: floor)
     end
   end
 end
@@ -65,7 +65,7 @@ Then(/^I should see the following shelter information$/) do |table|
   end
 end
 
-Given(/^Shelters buildings in the system$/) do |table|
+Given(/^Shelter buildings in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
     address = Address.new(line1: entry['Street Address'],
@@ -84,4 +84,12 @@ Then(/^I should see the following shelter building information$/) do |table|
     returned_shelter_building = response_body.find { |b| b['name'] == entry['Building'] }
     expect(returned_shelter_building['name']).to eq(entry['Building'])
   end
+end
+
+When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |arg1, arg2|
+  byebug
+end
+
+Given(/^Shelter Floors in the system$/) do |table|
+
 end
