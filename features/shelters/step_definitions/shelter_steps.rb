@@ -72,8 +72,10 @@ Given(/^Shelter Buildings in the system$/) do |table|
                           borough: entry['Borough'], zip: entry['Zip Code'])
     provider = Provider.new(name: entry['Provider'])
     shelter = Shelter.new(name: entry['Shelter'], provider: provider)
-    ShelterBuilding.create!(name: entry['Building'], shelter: shelter,
+    sb = ShelterBuilding.new(name: entry['Building'], shelter: shelter,
                             address: address)
+    sb.case_type = entry['Case Type'] if entry['Case Type'].present?
+    sb.save!
   end
 end
 
@@ -87,7 +89,16 @@ Then(/^I should see the following shelter building information$/) do |table|
 end
 
 When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |arg1, arg2|
-  # byebug
+  pending
+end
+
+When(/^I group the number of shelter buildings in the system by Identifier:$/) do |table|
+  h = table.rows_hash
+  ShelterBuilding.where(case_type: h['Case Type'])
+end
+
+Then(/^I should see (\d+) shelter buildings$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Given(/^Shelter Floors in the system$/) do |table|
