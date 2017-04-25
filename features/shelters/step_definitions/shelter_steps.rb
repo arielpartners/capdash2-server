@@ -65,7 +65,7 @@ Then(/^I should see the following shelter information$/) do |table|
   end
 end
 
-Given(/^Shelter buildings in the system$/) do |table|
+Given(/^Shelter Buildings in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
     address = Address.new(line1: entry['Street Address'],
@@ -91,5 +91,12 @@ When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/
 end
 
 Given(/^Shelter Floors in the system$/) do |table|
-
+  entries = table.hashes
+  entries.each do |entry|
+    building = ShelterBuilding.find_by(name: entry['Building'])
+    count = entry['Beds'].to_i
+    floor = Floor.new(shelter_building: building, name: entry['Floor'])
+    count.times { floor.places << Bed.new }
+    floor.save!
+  end
 end

@@ -5,7 +5,7 @@ Feature: Shelters Index
 
 @ignore
 Scenario: list all shelter buildings
-  Given Shelter buildings in the system
+  Given Shelter Buildings in the system
     | Case Type            | Provider                            | Shelter                         | Shelter Type         | Building            | Street Address      | Borough   | Zip Code |
     | Adult Male           | Project Renewal                     | East Williamsburg Men's Shelter | Adult Male Shelter   | EW Bldg 1           | 249 Varet Street    | Brooklyn  | 11206    |
     | Adult Female         | Institute for Community Living      | Tillary Women's Shelter         | Adult Female Shelter | Building 01         | 200 Tillary Street  | Brooklyn  | 11201    |
