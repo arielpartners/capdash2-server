@@ -29,7 +29,7 @@ Feature: Shelter Capacity
       | 6    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter |
       | 7    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter |
     And the following shelter building information:
-      | Building  | Shelter                         | Surge Beds | Population Group | Date Opened   |
+      | Building  | Shelter                         | Surge Beds | Case Type | Date Opened   |
       | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
     When I navigate to the url /shelters/1/buildings/EW-Bldg-1
     Then I should receive the following response

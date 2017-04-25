@@ -25,7 +25,7 @@ Given(/^the following shelter building information:$/) do |table|
                                                   shelter: shelter)
     building.update!(
       surge_beds: entry['Surge Beds'],
-      population_group: entry['Population Group'],
+      case_type: entry['Case Type'],
       date_opened: DateTime.parse(entry['Date Opened'])
     )
   end
@@ -87,7 +87,7 @@ Then(/^I should see the following shelter building information$/) do |table|
 end
 
 When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |arg1, arg2|
-  byebug
+  # byebug
 end
 
 Given(/^Shelter Floors in the system$/) do |table|
