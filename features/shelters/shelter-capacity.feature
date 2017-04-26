@@ -3,21 +3,6 @@ Feature: Shelter Capacity
   I want to know the total capacity of a given shelter building
   So that I know how many clients can be sheltered on a given night
 
-  #
-  # Nick this is to drive the design of shelters
-  # start at the bottom with Units.  Units have a number of beds, and a floor number,
-  # and a reference to a building object and a reference to a shelter object
-  # The shelter object should have a reference to a provider object
-  # You can start simple and we can add more parameters later
-  # Please also create RSPEC unit tests for each of them since they will each have specific behavior
-  #
-  # I recommend using slugs for the Restful URLs
-  # http://stackoverflow.com/questions/1302022/best-way-to-generate-slugs-human-readable-ids-in-rails
-  # https://rubygems.org/gems/slugify/versions/1.0.6
-  # that will convert the building name to a valid URL component
-  # that way we can avoid exposing UUID or database indexes to the outside world, unless we need to.
-  #
-
   @ignore
   Scenario: Adult shelter with many beds in large open area
     Given the following list of shelter beds:
