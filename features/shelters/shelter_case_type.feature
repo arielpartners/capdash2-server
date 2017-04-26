@@ -23,7 +23,7 @@ Feature: Shelter Case Type
       | EW Bldg 1   | 1     | Single Adult Male   |
       | EW Bldg 1   | 2     | Single Adult Male   |
       | Building 01 | 1     | Single Adult Male   |
-      | Building 01 | 1     | Single Adult Female |
+      | Building 01 | 2     | Single Adult Female |
 
   Scenario: Case type hierarchy rollup
     Given Shelter Buildings in the system

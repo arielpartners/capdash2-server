@@ -74,7 +74,7 @@ Given(/^Shelter Buildings in the system$/) do |table|
     shelter = Shelter.new(name: entry['Shelter'], provider: provider)
     sb = ShelterBuilding.new(name: entry['Building'], shelter: shelter,
                             address: address)
-    sb.case_type = entry['Case Type'] if entry['Case Type'].present?
+    sb.case_type = CaseType.find_or_create_by(name: entry['Case Type'])
     sb.save!
   end
 end
@@ -88,17 +88,18 @@ Then(/^I should see the following shelter building information$/) do |table|
   end
 end
 
-When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |arg1, arg2|
-  pending
+When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |building, floor|
+  @floor = Floor.where(name: floor).includes(:shelter_building).where('shelter_buildings.name' => building).first
 end
 
 When(/^I group the number of shelter buildings in the system by Identifier:$/) do |table|
   h = table.rows_hash
-  ShelterBuilding.where(case_type: h['Case Type'])
+  @buildings = ShelterBuilding.where(case_type: h['Case Type'])
+  byebug
 end
 
-Then(/^I should see (\d+) shelter buildings$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see (\d+) shelter buildings$/) do |n|
+  expect(@buildings.count).to eq(n)
 end
 
 Given(/^Shelter Floors in the system$/) do |table|
@@ -108,6 +109,11 @@ Given(/^Shelter Floors in the system$/) do |table|
     count = entry['Beds'].to_i
     floor = Floor.new(shelter_building: building, name: entry['Floor'])
     count.times { floor.places << Bed.new }
+    floor.case_type = CaseType.find_or_create_by(name: entry['Case Type'])
     floor.save!
   end
+end
+
+Then(/^we are told it is case type "([^"]*)"$/) do |type|
+  expect(@floor.case_type.name).to eq(type)
 end

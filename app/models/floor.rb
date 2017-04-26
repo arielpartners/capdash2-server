@@ -5,6 +5,6 @@ class Floor < ApplicationRecord
   belongs_to :case_type
 
   def case_type
-    self.case_type || shelter_building.case_type
+    super || shelter_building.case_type
   end
 end
