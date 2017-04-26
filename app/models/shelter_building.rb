@@ -5,6 +5,8 @@ class ShelterBuilding < ApplicationRecord
   has_many :censuses
   belongs_to :address
   belongs_to :shelter, required: true
+  belongs_to :case_type
+  belongs_to :shelter_type
 
   validates :slug, uniqueness: true
 
@@ -15,6 +17,14 @@ class ShelterBuilding < ApplicationRecord
   def bed_count(include_surge = false)
     beds = places.sum(:bed_count)
     include_surge ? beds + surge_beds : beds
+  end
+
+  def case_type=(type)
+    if type.is_a? String
+      self.case_type = CaseType.find_by(name: type)
+    else
+      super
+    end
   end
 
   private
