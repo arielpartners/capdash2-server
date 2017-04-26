@@ -2,4 +2,9 @@
 class Floor < ApplicationRecord
   has_many :places, as: :compartment
   belongs_to :shelter_building
+  belongs_to :case_type
+
+  def case_type
+    self.case_type || shelter_building.case_type
+  end
 end
