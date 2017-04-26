@@ -94,8 +94,7 @@ end
 
 When(/^I group the number of shelter buildings in the system by Identifier:$/) do |table|
   h = table.rows_hash
-  @buildings = ShelterBuilding.where(case_type: h['Case Type'])
-  byebug
+  @buildings = ShelterBuilding.includes(:case_type).where(identifiers: {name: h['Case Type']})
 end
 
 Then(/^I should see (\d+) shelter buildings$/) do |n|
