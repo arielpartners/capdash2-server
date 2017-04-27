@@ -94,11 +94,11 @@ end
 
 When(/^I group the number of shelter buildings in the system by Identifier:$/) do |table|
   h = table.rows_hash
-  @buildings = ShelterBuilding.includes(:case_type).where(identifiers: {name: h['Case Type']})
+  @buildings = ShelterBuilding.joins(:case_type).where("identifiers.name LIKE '%#{h['Case Type']}%'")
 end
 
 Then(/^I should see (\d+) shelter buildings$/) do |n|
-  expect(@buildings.count).to eq(n)
+  expect(@buildings.count).to eq(n.to_i)
 end
 
 Given(/^Shelter Floors in the system$/) do |table|
