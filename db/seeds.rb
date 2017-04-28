@@ -1,6 +1,6 @@
-User.create!(email: "sample_user@dhs.nyc.gov", password: "password")
-User.create!(email: "some_person@dhs.nyc.gov", password: "swordfish")
-User.create!(email: "anotherone@dhs.nyc.gov", password: "example")
+User.create!(email: "sample_user@dhs.nyc.gov", name: "John Doe", password: "password")
+User.create!(email: "some_person@dhs.nyc.gov", name: "Jane Doe", password: "swordfish")
+User.create!(email: "anotherone@dhs.nyc.gov", name: "Nick Iorio", password: "example")
 
 CaseType.create!(name: 'Adult Male')
 CaseType.create!(name: 'Adult Female')

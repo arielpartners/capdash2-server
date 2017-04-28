@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # get 'healthcheck' see middleware_healthcheck.rb
   scope :api do
+    get 'user', to: 'users#current'
     get 'info', to: 'diagnostics#info'
     post 'user_token' => 'user_token#create'
     post 'utilization', to: 'censuses#utilization'
