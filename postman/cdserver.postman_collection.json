@@ -14,7 +14,7 @@
 				{
 					"name": "user token",
 					"request": {
-						"url": "http://{{url}}/user_token",
+						"url": "http://{{url}}/api/user_token",
 						"method": "POST",
 						"header": [
 							{
@@ -40,7 +40,7 @@
 				{
 					"name": "providers index",
 					"request": {
-						"url": "{{url}}/providers",
+						"url": "{{url}}/api/providers",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -51,7 +51,7 @@
 				{
 					"name": "show provider",
 					"request": {
-						"url": "{{url}}/providers/project-renewal",
+						"url": "{{url}}/api/providers/project-renewal",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -68,7 +68,7 @@
 				{
 					"name": "shelter buildings index",
 					"request": {
-						"url": "{{url}}/shelter_buildings",
+						"url": "{{url}}/api/shelter_buildings",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -79,7 +79,7 @@
 				{
 					"name": "show shelter building",
 					"request": {
-						"url": "{{url}}/shelters/1/buildings/79-00-queens-boulevard",
+						"url": "{{url}}/api/shelters/1/buildings/79-00-queens-boulevard",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -96,7 +96,7 @@
 				{
 					"name": "shelters index",
 					"request": {
-						"url": "{{url}}/shelters",
+						"url": "{{url}}/api/shelters",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -107,7 +107,7 @@
 				{
 					"name": "get shelters for a provider",
 					"request": {
-						"url": "{{url}}/shelters?provider=project-renewal",
+						"url": "{{url}}/api/shelters?provider=project-renewal",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -124,7 +124,7 @@
 				{
 					"name": "healthcheck",
 					"request": {
-						"url": "http://{{url}}/healthcheck",
+						"url": "http://{{url}}/api/healthcheck",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -138,7 +138,7 @@
 				{
 					"name": "info",
 					"request": {
-						"url": "http://{{url}}/info",
+						"url": "http://{{url}}/api/info",
 						"method": "GET",
 						"header": [],
 						"body": {
