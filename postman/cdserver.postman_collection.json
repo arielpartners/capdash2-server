@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "capdash2 cdserver endpoints",
-		"_postman_id": "96bac4d4-cd75-9892-5fc1-68a0e2802d60",
+		"_postman_id": "16b988bf-9b03-dcc4-740e-ccbbdefe1dd2",
 		"description": "Collection of capdash2 endpoints for cdserver",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -43,7 +43,10 @@
 						"url": "{{url}}/api/providers",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -51,7 +54,7 @@
 				{
 					"name": "show provider",
 					"request": {
-						"url": "{{url}}/api/providers/project-renewal",
+						"url": "{{url}}/api/providers/samaritan-village",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -71,7 +74,10 @@
 						"url": "{{url}}/api/shelter_buildings",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -82,7 +88,10 @@
 						"url": "{{url}}/api/shelters/1/buildings/79-00-queens-boulevard",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "nested within shelter"
 					},
 					"response": []
@@ -99,7 +108,10 @@
 						"url": "{{url}}/api/shelters",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -110,7 +122,10 @@
 						"url": "{{url}}/api/shelters?provider=project-renewal",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
