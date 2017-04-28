@@ -5,7 +5,7 @@ Feature: System Metadata
 
 Scenario: Get System Metadata
   Given the capdash system is running
-  When I navigate to the url /info
+  When I navigate to the url /api/info
   Then I should receive the following response
     | name              | capdash2   |
     | version           | $version   |

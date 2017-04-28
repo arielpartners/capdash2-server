@@ -40,7 +40,7 @@ end
 
 When(/^I ask for following average utilization by calendar period$/) do |table|
   # TODO: custom queries
-  post 'utilization'
+  post 'api/utilization'
 end
 
 Then(/^The system should provide the following average utilization$/) do |table|

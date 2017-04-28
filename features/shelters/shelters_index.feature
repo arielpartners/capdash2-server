@@ -13,7 +13,7 @@ Scenario: list all shelters
     | Life                            | NYC Dept of Homeless Services   |
     | Prospect Interfaith             | Homes for the Homeless          |
     | Bronx Acacia Cluster II         | Acacia Network Housing, Inc.    |
-  When I navigate to the url /shelters
+  When I navigate to the url /api/shelters
   Then I should see the following shelter information
     | Shelter                         |
     | East Williamsburg Men's Shelter |

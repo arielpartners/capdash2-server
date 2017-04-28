@@ -13,7 +13,7 @@ Scenario: list all providers
     | NYC Department of Homeless Services |
     | Homes for the Homeless              |
     | Acacia Network Housing, Inc.        |
-  When I navigate to the url /providers
+  When I navigate to the url /api/providers
   Then I should see the following provider information
     | Provider                            |
     | Project Renewal                     |

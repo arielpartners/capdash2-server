@@ -32,7 +32,7 @@ end
 When(/^I login as the following user$/) do |table|
   user = table.hashes[0]
   body = { auth: { email: user['email'], password: user['password'] } }
-  post '/user_token', body
+  post 'api/user_token', body
 end
 
 When(/^I navigate to the url (.*)$/) do |url|

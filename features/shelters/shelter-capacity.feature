@@ -17,7 +17,7 @@ Feature: Shelter Capacity
     And the following shelter building information:
       | Building  | Shelter                         | Surge Beds | Population Group | Date Opened   |
       | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
-    When I navigate to the url /shelters/1/buildings/EW-Bldg-1
+    When I navigate to the url /api/shelters/1/buildings/EW-Bldg-1
     Then I should receive the following response
       | units | 7  |
       | beds  | 10 |
@@ -33,7 +33,7 @@ Feature: Shelter Capacity
       | 2B   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    |
       | 2C   | 2     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    |
       | 3A   | 3     | 730 Kelly Street | 2          | Prospect Interfaith  | 4    |
-    When I navigate to the url /shelters/2/buildings/730-Kelly-Street
+    When I navigate to the url /api/shelters/2/buildings/730-Kelly-Street
     Then I should receive the following response
       | units | 7  |
       | beds  | 28 |

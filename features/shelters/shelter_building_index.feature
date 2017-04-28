@@ -13,7 +13,7 @@ Scenario: list all shelter buildings
     | Adult Family         | NYC Department of Homeless Services | Life                            | Adult Family Tier 2  | 78 Catherine Street | 78 Catherine Street | Manhattan | 10038    |
     | Family with Children | Homes for the Homeless              | Prospect Interfaith             | Family Tier 2        | 730 Kelly Street    | 730 Kelly Street    | Bronx     | 10455    |
     | Family With Children | Acacia Network Housing, Inc.        | Bronx Acacia Cluster II         | Family Cluster       | 819 East 178 Street | 819 East 178 Street | Bronx     | 10460    |
-  When I navigate to the url /shelter_buildings
+  When I navigate to the url /api/shelter_buildings
   Then I should see the following shelter building information
     | Building            |
     | EW Bldg 1           |
