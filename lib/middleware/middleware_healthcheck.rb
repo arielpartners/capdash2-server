@@ -10,7 +10,7 @@ class MiddlewareHealthcheck
   end
 
   def call(env)
-    return [204, {}, []] if env['PATH_INFO'.freeze] == '/healthcheck'.freeze
+    return [204, {}, []] if env['PATH_INFO'.freeze] == '/api/healthcheck'.freeze
     @app.call(env)
   end
 end
