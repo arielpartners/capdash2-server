@@ -3,7 +3,6 @@ Feature: Shelter Capacity
   I want to know the total capacity of a given shelter building
   So that I know how many clients can be sheltered on a given night
 
-  @ignore
   Scenario: Adult shelter with many beds in large open area
     Given the following list of shelter beds:
       | Bed  | Floor | Building  | Shelter ID | Shelter                         |
@@ -15,14 +14,12 @@ Feature: Shelter Capacity
       | 6    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter |
       | 7    | 1     | EW Bldg 1 | 1          | East Williamsburg Men's Shelter |
     And the following shelter building information:
-      | Building  | Shelter                         | Surge Beds | Population Group | Date Opened   |
+      | Building  | Shelter                         | Surge Beds | Case Type | Date Opened   |
       | EW Bldg 1 | East Williamsburg Men's Shelter | 3          | Adult Male       | 4 April, 2003 |
     When I navigate to the url /api/shelters/1/buildings/EW-Bldg-1
     Then I should receive the following response
-      | units | 7  |
       | beds  | 10 |
 
-    @ignore
   Scenario: Family multi-floor shelter
     Given the following list of shelter units:
       | Unit | Floor | Building         | Shelter ID | Shelter              | Beds |

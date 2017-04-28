@@ -1,4 +1,4 @@
-Given(/^the following list of shelter units:$/) do |table|
+Given(/^the following list of shelter (.*):$/) do |type, table|
   entries = table.hashes
   entries.each do |entry|
     shelter = Shelter.find_or_create_by!(id: entry['Shelter ID']) do |s|
@@ -8,11 +8,11 @@ Given(/^the following list of shelter units:$/) do |table|
                                                   shelter: shelter)
     floor = Floor.find_or_create_by!(shelter_building: building,
                                      name: entry['Floor'])
-    if entry['Population Group'].include?('Family')
+    if type == 'units'
       Unit.create!(name: entry['Unit'], compartment: floor,
                    bed_count: entry['Beds'])
     else
-      Bed.create!(name: entry['Bed'], compartment: floor)
+      Bed.create!(name: entry['Unit'], compartment: floor)
     end
   end
 end
@@ -25,7 +25,7 @@ Given(/^the following shelter building information:$/) do |table|
                                                   shelter: shelter)
     building.update!(
       surge_beds: entry['Surge Beds'],
-      population_group: entry['Population Group'],
+      case_type: entry['Case Type'],
       date_opened: DateTime.parse(entry['Date Opened'])
     )
   end
@@ -65,15 +65,17 @@ Then(/^I should see the following shelter information$/) do |table|
   end
 end
 
-Given(/^Shelters buildings in the system$/) do |table|
+Given(/^Shelter Buildings in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
     address = Address.new(line1: entry['Street Address'],
                           borough: entry['Borough'], zip: entry['Zip Code'])
     provider = Provider.new(name: entry['Provider'])
     shelter = Shelter.new(name: entry['Shelter'], provider: provider)
-    ShelterBuilding.create!(name: entry['Building'], shelter: shelter,
+    sb = ShelterBuilding.new(name: entry['Building'], shelter: shelter,
                             address: address)
+    sb.case_type = CaseType.find_or_create_by(name: entry['Case Type'])
+    sb.save!
   end
 end
 
@@ -84,4 +86,33 @@ Then(/^I should see the following shelter building information$/) do |table|
     returned_shelter_building = response_body.find { |b| b['name'] == entry['Building'] }
     expect(returned_shelter_building['name']).to eq(entry['Building'])
   end
+end
+
+When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |building, floor|
+  @floor = Floor.where(name: floor).includes(:shelter_building).where('shelter_buildings.name' => building).first
+end
+
+When(/^I group the number of shelter buildings in the system by Identifier:$/) do |table|
+  h = table.rows_hash
+  @buildings = ShelterBuilding.joins(:case_type).where("identifiers.name LIKE '%#{h['Case Type']}%'")
+end
+
+Then(/^I should see (\d+) shelter buildings$/) do |n|
+  expect(@buildings.count).to eq(n.to_i)
+end
+
+Given(/^Shelter Floors in the system$/) do |table|
+  entries = table.hashes
+  entries.each do |entry|
+    building = ShelterBuilding.find_by(name: entry['Building'])
+    count = entry['Beds'].to_i
+    floor = Floor.new(shelter_building: building, name: entry['Floor'])
+    count.times { floor.places << Bed.new }
+    floor.case_type = CaseType.find_or_create_by(name: entry['Case Type'])
+    floor.save!
+  end
+end
+
+Then(/^we are told it is case type "([^"]*)"$/) do |type|
+  expect(@floor.case_type.name).to eq(type)
 end

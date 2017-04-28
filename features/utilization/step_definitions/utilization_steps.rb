@@ -12,13 +12,13 @@ Given(/^The following shelters exist in the system$/) do |table|
     )
     building = ShelterBuilding.create!(
       address: address,
-      population_group: entry['Shelter Type'],
+      case_type: entry['Shelter Type'],
       name: entry['Building'],
       shelter: shelter
     )
     floor = building.floors.create!(name: '1')
     n = entry['Units'].to_i
-    if entry['Population Group'].include?('Family')
+    if entry['Case Type'].include?('Family')
       Unit.transaction { n.times { Unit.create!(name: n, compartment: floor) } }
     else
       Bed.transaction { n.times { Bed.create!(name: n, compartment: floor) } }

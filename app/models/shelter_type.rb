@@ -1,0 +1,3 @@
+class ShelterType < Identifier
+
+end

@@ -5,7 +5,7 @@ Feature: Shelter Utilization Audit Trail
 
   Background:
     Given The following shelters exist in the system
-      | Population Group | Provider        | Shelter                         | Shelter Type       | Building  | Street Address   | Borough  | Zip Code | Units |
+      | Case Type | Provider        | Shelter                         | Shelter Type       | Building  | Street Address   | Borough  | Zip Code | Units |
       | Adult Male       | Project Renewal | East Williamsburg Men's Shelter | Adult Male Shelter | EW Bldg 1 | 249 Varet Street | Brooklyn | 11206   | 140   |
     And The following occuped units information exists in the system
       | Shelter                         | Building  | Street Address   | Census DateTime    | Occupied Units | Entry DateTime     | Who Entered |

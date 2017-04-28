@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419150103) do
+ActiveRecord::Schema.define(version: 20170426145413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,16 @@ ActiveRecord::Schema.define(version: 20170419150103) do
     t.integer  "shelter_building_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "case_type_id"
     t.index ["shelter_building_id"], name: "index_floors_on_shelter_building_id", using: :btree
+  end
+
+  create_table "identifiers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "places", force: :cascade do |t|
@@ -65,14 +74,15 @@ ActiveRecord::Schema.define(version: 20170419150103) do
 
   create_table "shelter_buildings", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "address_id"
     t.integer  "surge_beds"
     t.integer  "shelter_id"
-    t.string   "population_group"
     t.datetime "date_opened"
     t.string   "slug"
+    t.integer  "case_type_id"
+    t.integer  "shelter_type_id"
     t.index ["address_id"], name: "index_shelter_buildings_on_address_id", using: :btree
     t.index ["shelter_id"], name: "index_shelter_buildings_on_shelter_id", using: :btree
   end
