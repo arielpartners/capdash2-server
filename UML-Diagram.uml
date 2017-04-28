@@ -9,9 +9,11 @@
     <node x="1486.5" y="258.875">Bed</node>
     <node x="0.0" y="725.0336538461538">Provider</node>
     <node x="1467.0" y="483.875">Floor</node>
+    <node x="1204.5366449511403" y="910.1612377850164">CaseType</node>
     <node x="1523.0" y="52.875">Unit</node>
     <node x="1906.0" y="162.125">Place</node>
-    <node x="2275.0" y="487.33814102564105">ApplicationRecord</node>
+    <node x="2275.0" y="487.3381410256411">ApplicationRecord</node>
+    <node x="556.5187296416939" y="610.0057003257328">ShelterType</node>
     <node x="1948.0" y="901.375">User</node>
     <node x="868.0" y="394.7003205128205">ShelterBuilding</node>
   </nodes>
@@ -39,6 +41,10 @@
       <point x="2195.0" y="1052.875" />
       <point x="-73.0" y="13.125" />
     </edge>
+    <edge source="Floor" target="CaseType">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
     <edge source="User" target="ApplicationRecord">
       <point x="102.5" y="-0.0" />
       <point x="2195.0" y="971.875" />
@@ -57,6 +63,10 @@
     <edge source="Place" target="ApplicationRecord">
       <point x="144.5" y="-0.0" />
       <point x="-73.0" y="-1.875" />
+    </edge>
+    <edge source="ShelterBuilding" target="CaseType">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
     </edge>
     <edge source="Provider" target="ApplicationRecord">
       <point x="140.0" y="-62.0" />
@@ -78,13 +88,17 @@
       <point x="2195.0" y="672.875" />
       <point x="-73.0" y="1.875" />
     </edge>
+    <edge source="ShelterBuilding" target="ShelterType">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
     <edge source="Unit" target="Place">
       <point x="123.5" y="-0.0" />
       <point x="1826.0" y="145.375" />
       <point x="-144.5" y="-86.25" />
     </edge>
     <edge source="ShelterBuilding" target="Census">
-      <point x="259.5" y="178.33333333333326" />
+      <point x="259.5" y="178.33333333333337" />
       <point x="1467.0" y="948.375" />
       <point x="-161.0" y="57.5" />
     </edge>
@@ -94,7 +108,7 @@
     </edge>
     <edge source="ShelterBuilding" target="Place">
       <point x="259.5" y="-107.0" />
-      <point x="1467.0" y="248.37499999999997" />
+      <point x="1467.0" y="248.37500000000003" />
       <point x="-144.5" y="-28.75" />
     </edge>
     <edge source="Provider" target="Shelter">
@@ -117,10 +131,8 @@
       <point x="-144.5" y="28.75" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.4895534616960262" x="1285.0577405857741" y="586.8916317991632" />
-  <SelectedNodes>
-    <node>ShelterBuilding</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.5030725112658746" x="1210.5" y="607.024022801303" />
+  <SelectedNodes />
   <Categories>
     <Category>Own fields</Category>
     <Category>Migration fields</Category>
