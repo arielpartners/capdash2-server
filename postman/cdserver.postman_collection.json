@@ -30,6 +30,23 @@
 						"description": "Get a jwt token with valid email and password"
 					},
 					"response": []
+				},
+				{
+					"name": "current user",
+					"request": {
+						"url": "http://{{url}}/api/user",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTM0OTYzMjAsInN1YiI6MX0.4Ir5FL_6yDeVXalbt5lKpeQeizta0d7-Y7uv80AO5Zs",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},
