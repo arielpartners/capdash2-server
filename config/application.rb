@@ -31,5 +31,6 @@ module Cdserver
 
     config.middleware.insert_after Rails::Rack::Logger, MiddlewareHealthcheck
     config.middleware.use LogMiddleware
+    config.autoload_paths += %W(#{config.root}/app/models/identifiers)
   end
 end
