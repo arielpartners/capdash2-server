@@ -1,4 +1,6 @@
+#
 # a building that houses shelter units
+#
 class ShelterBuilding < ApplicationRecord
   has_many :floors
   has_many :places, through: :floors, source: :places

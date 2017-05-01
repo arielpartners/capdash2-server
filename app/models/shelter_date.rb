@@ -1,5 +1,7 @@
+#
 # Shelterdate takes a real datetime, and a cutoff hour (integer representing
 # hours past midnight) and returns a "shelter date"
+#
 class ShelterDate
   include Comparable
   attr_reader :date, :cutoff_hour
