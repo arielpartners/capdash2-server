@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501153335) do
+ActiveRecord::Schema.define(version: 20170501155011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170501153335) do
     t.string   "slug"
     t.integer  "case_type_id"
     t.integer  "shelter_type_id"
+    t.integer  "program_type_id"
     t.index ["address_id"], name: "index_shelter_buildings_on_address_id", using: :btree
     t.index ["shelter_id"], name: "index_shelter_buildings_on_shelter_id", using: :btree
   end

@@ -7,6 +7,7 @@ class ShelterBuilding < ApplicationRecord
   belongs_to :shelter, required: true
   belongs_to :case_type
   belongs_to :shelter_type
+  belongs_to :program_type
 
   validates :slug, uniqueness: true
 

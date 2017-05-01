@@ -108,7 +108,7 @@ Given(/^Shelter Floors in the system$/) do |table|
     count = entry['Beds'].to_i
     floor = Floor.new(shelter_building: building, name: entry['Floor'])
     count.times { floor.places << Bed.new }
-    floor.case_type = CaseType.find_or_create_by(name: entry['Case Type'])
+    floor.case_type = CaseType.find_or_create_by(name: entry['Case Type']) unless entry['Case Type'].blank?
     floor.save!
   end
 end
