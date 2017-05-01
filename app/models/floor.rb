@@ -10,6 +10,6 @@ class Floor < ApplicationRecord
   end
 
   def program_type
-    super || shelter_building.case_type
+    super || shelter_building.program_type
   end
 end
