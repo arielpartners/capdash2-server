@@ -2,9 +2,9 @@ User.create!(email: "sample_user@dhs.nyc.gov", name: "John Doe", password: "pass
 User.create!(email: "some_person@dhs.nyc.gov", name: "Jane Doe", password: "swordfish")
 User.create!(email: "anotherone@dhs.nyc.gov", name: "Nick Iorio", password: "example")
 
-CaseType.create!(name: 'Adult Male')
-CaseType.create!(name: 'Adult Female')
-CaseType.create!(name: 'Adult Male')
+single = CaseType.create!(name: 'Single Adult')
+CaseType.create!(name: 'Adult Male', parent: single)
+CaseType.create!(name: 'Adult Female', parent: single)
 CaseType.create!(name: 'Adult Family')
 CaseType.create!(name: 'Family with Children')
 ShelterType.create!(name: 'Adult Shelter', code: 'FTC009')
@@ -28,7 +28,7 @@ programs = [
   'Substance Abuse',
   'Young Adult'
 ]
-programs.each { |program| ProgramType.create!(name: program)}  
+programs.each { |program| ProgramType.create!(name: program) }
 
 samaritan = Provider.create!(name: 'Samaritan Village')
 bfc = Shelter.create!(name: 'Boulevard Family Center', provider: samaritan)
