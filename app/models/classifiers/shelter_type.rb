@@ -1,0 +1,3 @@
+class ShelterType < Classifier
+
+end

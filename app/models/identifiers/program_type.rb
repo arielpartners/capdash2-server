@@ -1,3 +1,0 @@
-class ProgramType < Identifier
-
-end

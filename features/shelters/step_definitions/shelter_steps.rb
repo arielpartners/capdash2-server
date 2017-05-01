@@ -92,9 +92,9 @@ When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/
   @floor = Floor.where(name: floor).includes(:shelter_building).where('shelter_buildings.name' => building).first
 end
 
-When(/^I group the number of shelter buildings in the system by Identifier:$/) do |table|
+When(/^I group the number of shelter buildings in the system by Classifier:$/) do |table|
   h = table.rows_hash
-  @buildings = ShelterBuilding.joins(:case_type).where("identifiers.name LIKE '%#{h['Case Type']}%'")
+  @buildings = ShelterBuilding.joins(:case_type).where("classifiers.name LIKE '%#{h['Case Type']}%'")
 end
 
 Then(/^I should see (\d+) shelter buildings$/) do |n|

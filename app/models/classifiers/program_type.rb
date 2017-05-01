@@ -1,0 +1,3 @@
+class ProgramType < Classifier
+
+end
