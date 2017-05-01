@@ -14,6 +14,21 @@ ShelterType.create!(name: 'Family Cluster', code: 'FTC003')
 ShelterType.create!(name: 'Adult Family Hotel', code: 'FTC008')
 ShelterType.create!(name: 'Adult Family Tier 2', code: 'FTC006')
 ShelterType.create!(name: 'Family Tier 2', code: 'FTC001')
+programs = [
+  'Adult Commercial Hotel',
+  'Annex',
+  'Assessment',
+  'Criminal Justice',
+  'Diversion',
+  'Employment',
+  'General',
+  'Mental Health',
+  'MICA',
+  'Special Population',
+  'Substance Abuse',
+  'Young Adult'
+]
+programs.each { |program| ProgramType.create!(name: program)}  
 
 samaritan = Provider.create!(name: 'Samaritan Village')
 bfc = Shelter.create!(name: 'Boulevard Family Center', provider: samaritan)
