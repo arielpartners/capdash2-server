@@ -12,7 +12,7 @@ Given(/^The following shelters exist in the system$/) do |table|
     )
     building = ShelterBuilding.create!(
       address: address,
-      case_type: entry['Shelter Type'],
+      case_type: entry['Case Type'],
       name: entry['Building'],
       shelter: shelter
     )

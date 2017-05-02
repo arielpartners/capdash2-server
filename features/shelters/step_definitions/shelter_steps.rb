@@ -23,9 +23,10 @@ Given(/^the following shelter building information:$/) do |table|
     shelter = Shelter.find_or_create_by!(name: entry['Shelter'])
     building = ShelterBuilding.find_or_create_by!(name: entry['Building'],
                                                   shelter: shelter)
+    case_type = CaseType.find_by(name: entry['Case Type'])
     building.update!(
       surge_beds: entry['Surge Beds'],
-      case_type: entry['Case Type'],
+      case_type: case_type,
       date_opened: DateTime.parse(entry['Date Opened'])
     )
   end
@@ -72,10 +73,12 @@ Given(/^Shelter Buildings in the system$/) do |table|
                           borough: entry['Borough'], zip: entry['Zip Code'])
     provider = Provider.new(name: entry['Provider'])
     shelter = Shelter.new(name: entry['Shelter'], provider: provider)
-    sb = ShelterBuilding.new(name: entry['Building'], shelter: shelter,
-                             address: address)
-    sb.case_type = CaseType.find_by(name: entry['Case Type'])
-    sb.save!
+    ShelterBuilding.create!(
+      name: entry['Building'],
+      shelter: shelter,
+      address: address,
+      case_type: entry['Case Type']
+    )
   end
 end
 

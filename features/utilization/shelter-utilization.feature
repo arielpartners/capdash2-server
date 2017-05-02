@@ -5,7 +5,7 @@ Feature: Shelter Utilization
 
   Background:
     Given The following shelters exist in the system
-      | Case Type     | Provider                            | Shelter                         | Shelter Type         | Building            | Street Address      | Borough   | Zip Code | Units |
+      | Case Type            | Provider                            | Shelter                         | Shelter Type         | Building            | Street Address      | Borough   | Zip Code | Units |
       | Adult Male           | Project Renewal                     | East Williamsburg Men's Shelter | Adult Male Shelter   | EW Bldg 1           | 249 Varet Street    | Brooklyn  | 11206    | 140   |
       | Adult Female         | Institute for Community Living      | Tillary Women's Shelter         | Adult Female Shelter | Building 01         | 200 Tillary Street  | Brooklyn  | 11201    | 200   |
       | Adult Family         | Samaritan Village                   | Anthony Adult Family Residence  | Adult Shelter        | 1848 Anthony Avenue | 1848 Anthony Avenue | Bronx     | 10457    |  37   |
@@ -75,7 +75,7 @@ Feature: Shelter Utilization
   Scenario: Average Weekly Per-Case Type Utilization
     When I ask for the following average utilization by calendar period
       | Group By         | Period Type | Period Ending |
-      | Case Type | Week        | 6/11/2016     |
+      | Case Type        | Week        | 6/11/2016     |
     Then The system should provide the following average utilization
       | Group                | Period Ending | Average Capacity | Average Utilization | Percentage |
       | Adult Male           | 06/11/2016    | 140              | 108                 | 77%        |
