@@ -73,8 +73,8 @@ Given(/^Shelter Buildings in the system$/) do |table|
     provider = Provider.new(name: entry['Provider'])
     shelter = Shelter.new(name: entry['Shelter'], provider: provider)
     sb = ShelterBuilding.new(name: entry['Building'], shelter: shelter,
-                            address: address)
-    sb.case_type = CaseType.find_or_create_by(name: entry['Case Type'])
+                             address: address)
+    sb.case_type = CaseType.find_by(name: entry['Case Type'])
     sb.save!
   end
 end
@@ -89,12 +89,13 @@ Then(/^I should see the following shelter building information$/) do |table|
 end
 
 When(/^we ask for the Case type for the building "([^"]*)" and floor "([^"]*)"$/) do |building, floor|
-  @floor = Floor.where(name: floor).includes(:shelter_building).where('shelter_buildings.name' => building).first
+  @floor = Floor.where(name: floor).includes(:shelter_building)
+                .where('shelter_buildings.name' => building).first
 end
 
 When(/^I group the number of shelter buildings in the system by Classifier:$/) do |table|
   h = table.rows_hash
-  @buildings = ShelterBuilding.joins(:case_type).where("classifiers.name LIKE '%#{h['Case Type']}%'")
+  @buildings = ShelterBuilding.find_by_case_type(h['Case Type'])
 end
 
 Then(/^I should see (\d+) shelter buildings$/) do |n|
@@ -108,7 +109,7 @@ Given(/^Shelter Floors in the system$/) do |table|
     count = entry['Beds'].to_i
     floor = Floor.new(shelter_building: building, name: entry['Floor'])
     count.times { floor.places << Bed.new }
-    floor.case_type = CaseType.find_or_create_by(name: entry['Case Type']) unless entry['Case Type'].blank?
+    floor.case_type = CaseType.find_by(name: entry['Case Type'])
     floor.save!
   end
 end

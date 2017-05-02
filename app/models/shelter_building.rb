@@ -30,6 +30,18 @@ class ShelterBuilding < ApplicationRecord
     end
   end
 
+  def self.find_by_case_type(name)
+    classifier = Classifier.find_by(name: name)
+    return if classifier.nil?
+    children = classifier.children
+    if children.any?
+      names = children.map(&:name) << name
+      ShelterBuilding.includes(:case_type).where(classifiers: { name: names })
+    else
+      ShelterBuilding.includes(:case_type).where(classifiers: { name: name })
+    end
+  end
+
   private
 
   def ensure_name

@@ -3,8 +3,8 @@ User.create!(email: "some_person@dhs.nyc.gov", name: "Jane Doe", password: "swor
 User.create!(email: "anotherone@dhs.nyc.gov", name: "Nick Iorio", password: "example")
 
 single = CaseType.create!(name: 'Single Adult')
-CaseType.create!(name: 'Adult Male', parent: single)
-CaseType.create!(name: 'Adult Female', parent: single)
+CaseType.create!(name: 'Single Adult Male', parent: single)
+CaseType.create!(name: 'Single Adult Female', parent: single)
 CaseType.create!(name: 'Adult Family')
 CaseType.create!(name: 'Family with Children')
 ShelterType.create!(name: 'Adult Shelter', code: 'FTC009')
