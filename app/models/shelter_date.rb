@@ -1,6 +1,9 @@
 #
 # Shelterdate takes a real datetime, and a cutoff hour (integer representing
-# hours past midnight) and returns a "shelter date"
+# hours past midnight) and returns a "shelter date". ShelterDate enables us to
+# associate an overnight stay in a shelter by a client with a single
+# unambiguous date, rather than a pair of dates crossing midnight. The date
+# chosen is always the start date-- that is, the date prior to midnight.
 #
 class ShelterDate
   include Comparable
