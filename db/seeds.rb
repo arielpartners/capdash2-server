@@ -2,15 +2,28 @@ User.create!(email: "sample_user@dhs.nyc.gov", name: "John Doe", password: "pass
 User.create!(email: "some_person@dhs.nyc.gov", name: "Jane Doe", password: "swordfish")
 User.create!(email: "anotherone@dhs.nyc.gov", name: "Nick Iorio", password: "example")
 
-single = CaseType.create!(name: 'Single Adult')
+single = CaseType.create!(name: 'Single Adult', description: 'Single adult homeless client')
 CaseType.create!(name: 'Single Adult Male', parent: single)
 CaseType.create!(name: 'Single Adult Female', parent: single)
-CaseType.create!(name: 'Adult Family')
-CaseType.create!(name: 'Family with Children')
+CaseType.create!(
+  name: 'Adult Family',
+  description: 'Case type consisting of two or more related adults, no children under 18'
+)
+CaseType.create!(name: 'Family with Children', description: 'includes pregnant single women')
 ShelterType.create!(name: 'Adult Shelter', code: 'FTC009')
 ShelterType.create!(name: 'Late Arrival', code: 'FTC005')
 ShelterType.create!(name: 'Family Hotel', code: 'FTC004')
-ShelterType.create!(name: 'Family Cluster', code: 'FTC003')
+ShelterType.create!(
+  name: 'Family Cluster',
+  code: 'FTC003',
+  description: 'An apartment in a private apartment building that is used to'\
+  'house homeless, as well as renting families. Social services are limited and'\
+   'the shelter does not qualify as a tier II.  Clusters are a special agreement'\
+   'with providers where providers acquire units for sheltering that are in'\
+   'standard residential buildings, where the buildings typically already have'\
+   'private tenants.  Buildings may be in close proximity or they may be disbursed. '\
+   'Mayor DeBlasio is phasing out the cluster program over the next three years.'
+)
 ShelterType.create!(name: 'Adult Family Hotel', code: 'FTC008')
 ShelterType.create!(name: 'Adult Family Tier 2', code: 'FTC006')
 ShelterType.create!(name: 'Family Tier 2', code: 'FTC001')
