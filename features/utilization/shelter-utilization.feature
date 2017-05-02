@@ -6,8 +6,8 @@ Feature: Shelter Utilization
   Background:
     Given The following shelters exist in the system
       | Case Type            | Provider                            | Shelter                         | Shelter Type         | Building            | Street Address      | Borough   | Zip Code | Units |
-      | Adult Male           | Project Renewal                     | East Williamsburg Men's Shelter | Adult Male Shelter   | EW Bldg 1           | 249 Varet Street    | Brooklyn  | 11206    | 140   |
-      | Adult Female         | Institute for Community Living      | Tillary Women's Shelter         | Adult Female Shelter | Building 01         | 200 Tillary Street  | Brooklyn  | 11201    | 200   |
+      | Single Adult Male    | Project Renewal                     | East Williamsburg Men's Shelter | Adult Male Shelter   | EW Bldg 1           | 249 Varet Street    | Brooklyn  | 11206    | 140   |
+      | Single Adult Female  | Institute for Community Living      | Tillary Women's Shelter         | Adult Female Shelter | Building 01         | 200 Tillary Street  | Brooklyn  | 11201    | 200   |
       | Adult Family         | Samaritan Village                   | Anthony Adult Family Residence  | Adult Shelter        | 1848 Anthony Avenue | 1848 Anthony Avenue | Bronx     | 10457    |  37   |
       | Adult Family         | NYC Department of Homeless Services | Life                            | Adult Family Tier 2  | 78 Catherine Street | 78 Catherine Street | Manhattan | 10038    |  45   |
       | Family with Children | Homes for the Homeless              | Prospect Interfaith             | Family Tier 2        | 730 Kelly Street    | 730 Kelly Street    | Bronx     | 10455    |  88   |
@@ -78,8 +78,8 @@ Feature: Shelter Utilization
       | Case Type        | Week        | 6/11/2016     |
     Then The system should provide the following average utilization
       | Group                | Period Ending | Average Capacity | Average Utilization | Percentage |
-      | Adult Male           | 06/11/2016    | 140              | 108                 | 77%        |
-      | Adult Female         | 06/11/2016    | 200              | 198                 | 99%        |
+      | Single Adult Male    | 06/11/2016    | 140              | 108                 | 77%        |
+      | Single Adult Female  | 06/11/2016    | 200              | 198                 | 99%        |
       | Adult Family         | 06/11/2016    | 82               | 75                  | 91%        |
       | Family With Children | 06/11/2016    | 884              | 683                 | 77%        |
       | Total                | 06/11/2016    | 1,306            | 1,063               | 81%        |
