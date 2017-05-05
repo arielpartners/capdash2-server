@@ -19,7 +19,7 @@ ShelterType.create!(
   'intake center (e.g. PATH) to finish the application process.'
 )
 ShelterType.create!(
-  name: 'Hotel'
+  name: 'Hotel',
   description: 'A currently-operating hotel that for may agree to provide rooms'\
   ' at regular commercial rates for emergency shelter use for overflow clients.'\
   '  Facility type “hotel” includes both converted former hotel buildings as '\
