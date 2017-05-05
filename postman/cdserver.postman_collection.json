@@ -136,13 +136,10 @@
 				{
 					"name": "get shelters for a provider",
 					"request": {
-						"url": "{{url}}/api/shelters?provider=project-renewal",
+						"url": "{{url}}/api/shelters?provider=nyc-department-of-homeless-services",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"description": ""
 					},
 					"response": []
