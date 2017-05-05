@@ -14,5 +14,6 @@ Rails.application.routes.draw do
       resources :buildings, controller: 'shelter_buildings', only: [:show]
     end
     resources :shelter_buildings, only: :index
+    get 'census', to: 'censuses#show'
   end
 end
