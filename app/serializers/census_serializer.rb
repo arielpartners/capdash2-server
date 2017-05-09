@@ -1,5 +1,5 @@
 class CensusSerializer < ActiveModel::Serializer
-  attributes :building, :shelter, :shelter_date, :as_of_date, :author
+  attributes :building, :shelter, :shelter_date, :as_of_date, :author, :datetime
   def shelter
     object.shelter_building.shelter.name
   end

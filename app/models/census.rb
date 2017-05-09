@@ -1,7 +1,6 @@
 class Census < ApplicationRecord
   belongs_to :shelter_building, required: true
 
-  serialize :shelter_date
   before_save :calculate_utilization
 
   def self.utilization_averages
@@ -36,6 +35,11 @@ class Census < ApplicationRecord
         percentage: (result.percentage * 100).round
       }
     end
+  end
+
+  def datetime=(time)
+    super(time)
+    self.shelter_date = ShelterDate.new(time, 0).date
   end
 
   private

@@ -7,7 +7,7 @@ class CensusesController < ApplicationController
   def show
     @census = Census.find_by(
       shelter_building_id: params[:building],
-      shelter_date: ShelterDate.new(params[:shelter_date], 0)
+      shelter_date: params[:shelter_date]
     )
     if @census
       render json: @census

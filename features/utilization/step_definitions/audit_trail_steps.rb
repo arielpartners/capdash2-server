@@ -6,7 +6,7 @@ Given(/^The following occuped units information exists in the system$/) do |tabl
       shelter_building: building,
       count: entry['Occupied Units'],
       author: entry['Who Entered'],
-      shelter_date: ShelterDate.new(entry['Census DateTime'], 0),
+      datetime: entry['Census DateTime'],
       created_at: DateTime.parse(entry['Entry DateTime'])
     )
   end
@@ -19,6 +19,11 @@ When(/^I ask for census information$/) do |table|
     building: id,
     shelter_date: query['Business Date']
   }
-  resp = get 'api/census', params
+  get 'api/census', params
+end
+
+Then(/^The system should provide the following census information$/) do |table|
+  body = JSON.parse(last_response.body)
+  expected = table.hashes[0]
   byebug
 end
