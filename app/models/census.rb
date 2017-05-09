@@ -1,7 +1,7 @@
 class Census < ApplicationRecord
   belongs_to :shelter_building, required: true
 
-  before_save :calculate_utilization
+  before_save :calculate_utilization, :set_shelter_date
 
   def self.utilization_averages
     sql = <<-SQL
@@ -37,12 +37,11 @@ class Census < ApplicationRecord
     end
   end
 
-  def datetime=(time)
-    super(time)
-    self.shelter_date = ShelterDate.new(time, 0).date
-  end
-
   private
+
+  def set_shelter_date
+    self.shelter_date = ShelterDate.new(datetime, 3).date
+  end
 
   def calculate_utilization
     self.utilization = (count.to_f / shelter_building.places.count).round(3)

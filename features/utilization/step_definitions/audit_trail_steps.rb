@@ -6,7 +6,7 @@ Given(/^The following occuped units information exists in the system$/) do |tabl
       shelter_building: building,
       count: entry['Occupied Units'],
       author: entry['Who Entered'],
-      datetime: entry['Census DateTime'],
+      datetime: DateTime.strptime(entry['Census DateTime'], '%m/%d/%Y %I:%M%p'),
       created_at: DateTime.parse(entry['Entry DateTime'])
     )
   end
