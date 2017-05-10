@@ -27,7 +27,7 @@ end
 Then(/^The system should provide the following census information$/) do |table|
   body = JSON.parse(last_response.body)
   table.hashes.each_with_index do |expected, i|
-    census = body.is_a?(Array) ? body[i] : body
+    census = body[i]
     expect(census['shelter']).to eq(expected['Shelter'])
     expect(census['building']).to eq(expected['Building'])
     expect(census['datetime']).to eq(expected['Census DateTime'])
