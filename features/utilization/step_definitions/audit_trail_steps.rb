@@ -20,15 +20,18 @@ When(/^I ask for census information$/) do |table|
     shelter_date: query['Business Date']
   }
   params[:as_of] = query['As Of Date'] unless query['As Of Date'].blank?
+  params[:author] = query['Who Entered']
   get 'api/census', params
 end
 
 Then(/^The system should provide the following census information$/) do |table|
   body = JSON.parse(last_response.body)
-  expected = table.hashes[0]
-  expect(body['shelter']).to eq(expected['Facility'])
-  expect(body['building']).to eq(expected['Building'])
-  expect(body['datetime']).to eq(expected['Census DateTime'])
-  expect(body['occupied_units']).to eq(expected['Occupied Units'].to_i)
-  expect(body['author']).to eq(expected['Who Entered'])
+  table.hashes.each_with_index do |expected, i|
+    census = body.is_a?(Array) ? body[i] : body
+    expect(census['shelter']).to eq(expected['Shelter'])
+    expect(census['building']).to eq(expected['Building'])
+    expect(census['datetime']).to eq(expected['Census DateTime'])
+    expect(census['occupied_units']).to eq(expected['Occupied Units'].to_i)
+    expect(census['author']).to eq(expected['Who Entered'])
+  end
 end

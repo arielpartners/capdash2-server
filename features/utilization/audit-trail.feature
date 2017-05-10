@@ -22,7 +22,7 @@ Feature: Shelter Utilization Audit Trail
       | Shelter                         | Building  | Business Date | As Of Date |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/05/2016    |            |
     Then The system should provide the following census information
-      | Facility                        | Building  | Census DateTime   | As Of Date | Occupied Units | Who Entered |
+      | Shelter                         | Building  | Census DateTime   | As Of Date | Occupied Units | Who Entered |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 2:00am | today      | 103            | niorio      |
 
   @ignore
@@ -31,7 +31,7 @@ Feature: Shelter Utilization Audit Trail
       | Shelter                         | Building  | Business Date | As Of Date |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/05/2016    | 06/07/2016 |
     Then The system should provide the following census information
-      | Facility                        | Building  | Census DateTime   | As Of Date | Occupied Units | Who Entered |
+      | Shelter                         | Building  | Census DateTime   | As Of Date | Occupied Units | Who Entered |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 2:00am | 06/07/2016 | 98             | bgramman    |
 
   @ignore
