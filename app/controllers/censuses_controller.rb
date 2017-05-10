@@ -5,10 +5,11 @@ class CensusesController < ApplicationController
   end
 
   def show
-    @census = Census.order(created_at: :desc).where(
+    as_of = params[:as_of] || Date.today
+    @census = Census.order('datetime DESC, created_at DESC').where(
       shelter_building_id: params[:building],
       shelter_date: Date.strptime(params[:shelter_date], '%m/%d/%Y')
-    ).first
+    ).where('created_at <= ?', as_of).first
     if @census
       render json: @census
     else

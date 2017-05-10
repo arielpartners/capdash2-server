@@ -19,6 +19,7 @@ When(/^I ask for census information$/) do |table|
     building: id,
     shelter_date: query['Business Date']
   }
+  params[:as_of] = query['As Of Date'] unless query['As Of Date'].blank?
   get 'api/census', params
 end
 
