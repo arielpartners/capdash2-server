@@ -3,7 +3,6 @@ Feature: Shelters Index
   I want to see the list of shelter buildings
   so that I know what capacity is available and the physical locations where sheltering is offered
 
-@ignore
 Scenario: list all shelter buildings
   Given Shelter Buildings in the system
     | Case Type            | Provider                            | Shelter                         | Shelter Type         | Building            | Street Address      | Borough   | Zip Code |

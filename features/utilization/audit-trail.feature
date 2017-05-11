@@ -16,7 +16,6 @@ Feature: Shelter Utilization Audit Trail
       | East Williamsburg Men's Shelter | EW Bldg 1 | 249 Varet Street | 06/06/2016 2:00am  | 103            | 06/09/2016 2:30pm  | niorio      |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 249 Varet Street | 06/06/2016 8:00pm  | 95             | 06/07/2016 10:15am | kpeterson   |
 
-  @ignore
   Scenario: Get latest version of census
     When I ask for census information
       | Shelter                         | Building  | Business Date | As Of Date |
@@ -25,7 +24,6 @@ Feature: Shelter Utilization Audit Trail
       | Shelter                         | Building  | Census DateTime   | As Of Date | Occupied Units | Who Entered |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 2:00am | today      | 103            | niorio      |
 
-  @ignore
   Scenario: Get previous version of census
     When I ask for census information
       | Shelter                         | Building  | Business Date | As Of Date |
@@ -34,7 +32,6 @@ Feature: Shelter Utilization Audit Trail
       | Shelter                         | Building  | Census DateTime   | As Of Date | Occupied Units | Who Entered |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 2:00am | 06/07/2016 | 98             | bgramman    |
 
-  @ignore
   Scenario: Get census entries by author
     When I ask for census information
       | Shelter                         | Building  | Who Entered |
