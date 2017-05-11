@@ -11,7 +11,7 @@ Feature: Shelter Utilization
       | Adult Family         | Samaritan Village                   | Anthony Adult Family Residence  | Adult Shelter        | 1848 Anthony Avenue | 1848 Anthony Avenue | Bronx     | 10457    |  37   |
       | Adult Family         | NYC Department of Homeless Services | Life                            | Adult Family Tier 2  | 78 Catherine Street | 78 Catherine Street | Manhattan | 10038    |  45   |
       | Family with Children | Homes for the Homeless              | Prospect Interfaith             | Family Tier 2        | 730 Kelly Street    | 730 Kelly Street    | Bronx     | 10455    |  88   |
-      | Family With Children | Acacia Network Housing, Inc.        | Bronx Acacia Cluster II         | Family Cluster       | 819 East 178 Street | 819 East 178 Street | Bronx     | 10460    | 796   |
+      | Family with Children | Acacia Network Housing, Inc.        | Bronx Acacia Cluster II         | Family Cluster       | 819 East 178 Street | 819 East 178 Street | Bronx     | 10460    | 796   |
     And The following census information exists in the system
       | Shelter                         | Building            | Street Address      | Shelter Date | Occupied |
       | East Williamsburg Men's Shelter | EW Bldg 1           | 249 Varet Street    | 06/05/2016    | 100      |
@@ -58,7 +58,7 @@ Feature: Shelter Utilization
       | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/11/2016    | 595      |
 
   Scenario: Average Weekly Per-Shelter Utilization
-    When I ask for following average utilization by calendar period
+    When I ask for the following average utilization by calendar period
       | Group By | Period Type | Period Ending |
       | Shelter  | Week        | 6/11/2016     |
     Then The system should provide the following average utilization
@@ -79,5 +79,5 @@ Feature: Shelter Utilization
       | Single Adult Male    | 06/11/2016    | 140              | 108                 | 77%        |
       | Single Adult Female  | 06/11/2016    | 200              | 198                 | 99%        |
       | Adult Family         | 06/11/2016    | 82               | 75                  | 91%        |
-      | Family With Children | 06/11/2016    | 884              | 683                 | 77%        |
-      | Total                | 06/11/2016    | 1,306            | 1,063               | 81%        |
+      | Family with Children | 06/11/2016    | 884              | 683                 | 77%        |
+      | Total                | 06/11/2016    | 1306             | 1063                | 81%        |
