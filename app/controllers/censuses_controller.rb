@@ -1,8 +1,4 @@
 class CensusesController < ApplicationController
-  def utilization
-    results = Census.utilization_averages
-    render json: results
-  end
 
   def show
     @censuses = Census.order('datetime DESC, created_at DESC')
