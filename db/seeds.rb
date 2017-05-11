@@ -125,3 +125,10 @@ units = [
 units.each do |unit|
   Unit.create!(name: unit[:name], compartment: unit[:floor], bed_count: unit[:beds])
 end
+
+Census.create!(shelter_building: help_building, count: 90, author: 'kpeterson', datetime: '2016-06-05 8:00pm ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 95, author: 'cstrong', datetime: '2016-06-05 10:00pm ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 97, author: 'bgramman', datetime: '2016-06-06 12:00am ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 98, author: 'bgramman', datetime: '2016-06-06 2:00am ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 103, author: 'niorio', datetime: '2016-06-06 2:00am ', created_at: '2016-06-09 2:30pm' )
+Census.create!(shelter_building: help_building, count: 95, author: 'kpeterson', datetime: '2016-06-06 8:00pm', created_at: '2016-06-07 10:15am' )

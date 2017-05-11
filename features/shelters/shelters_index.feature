@@ -3,7 +3,6 @@ Feature: Shelters Index
   I want to see the list of shelters
   so that I can identify shelter buildings and navigate to provider information
 
-@ignore
 Scenario: list all shelters
   Given Shelters in the system
     | Shelter                         | Provider                        |

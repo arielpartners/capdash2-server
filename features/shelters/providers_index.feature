@@ -3,7 +3,6 @@ Feature: Providers Index
   I want to see the list of providers
   so that I can see their administrative and billing information.
 
-@ignore
 Scenario: list all providers
   Given Providers in the system
     | Provider                            |

@@ -57,7 +57,6 @@ Feature: Shelter Utilization
       | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/10/2016    | 550      |
       | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/11/2016    | 595      |
 
-  @ignore
   Scenario: Average Weekly Per-Shelter Utilization
     When I ask for following average utilization by calendar period
       | Group By | Period Type | Period Ending |
@@ -71,7 +70,6 @@ Feature: Shelter Utilization
       | Prospect Interfaith             | 730 Kelly Street    | 730 Kelly Street    | 06/11/2016    | 83                  | 95%        |
       | Bronx Acacia Cluster II         | 819 East 178 Street | 819 East 178 Street | 06/11/2016    | 599                 | 75%        |
 
-  @ignore
   Scenario: Average Weekly Per-Case Type Utilization
     When I ask for the following average utilization by calendar period
       | Group By         | Period Type | Period Ending |

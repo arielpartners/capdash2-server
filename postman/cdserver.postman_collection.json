@@ -51,6 +51,89 @@
 			]
 		},
 		{
+			"name": "Census",
+			"description": "",
+			"item": [
+				{
+					"name": "all censuses",
+					"request": {
+						"url": "{{url}}/api/census",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "census by building",
+					"request": {
+						"url": "{{url}}/api/census?building=785-crotona-park-north",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "census by building/shelter-date",
+					"request": {
+						"url": "{{url}}/api/census?building=785-crotona-park-north&shelter_date=06/05/2016",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "census by author",
+					"request": {
+						"url": "{{url}}/api/census?author=niorio",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "census by shelter-date",
+					"request": {
+						"url": "{{url}}/api/census?shelter_date=06/05/2016",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "census by as-of date/ shelterdate/ building",
+					"request": {
+						"url": "{{url}}/api/census?as_of=06/07/2016&shelter_date=06/05/2016&building=785-crotona-park-north",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "census by as-of date",
+					"request": {
+						"url": "{{url}}/api/census?as_of=06/07/2016",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Providers",
 			"description": "",
 			"item": [
