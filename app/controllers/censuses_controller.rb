@@ -5,15 +5,16 @@ class CensusesController < ApplicationController
   end
 
   def show
-    if params[:author]
-      @censuses = Census.where(author: params[:author])
-    else
-      as_of = params[:as_of] || Date.today
-      @censuses = Census.order('datetime DESC, created_at DESC').where(
-        shelter_building_id: params[:building],
-        shelter_date: Date.strptime(params[:shelter_date], '%m/%d/%Y')
-      ).where('created_at <= ?', as_of)
+    @censuses = Census.order('datetime DESC, created_at DESC')
+    census_params.each do |key, value|
+      @censuses = @censuses.public_send(key, value) if value.present?
     end
     render json: @censuses
+  end
+
+  private
+
+  def census_params
+    params.permit(:building, :shelter_date, :author, :as_of)
   end
 end

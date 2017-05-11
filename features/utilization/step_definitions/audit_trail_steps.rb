@@ -7,16 +7,16 @@ Given(/^The following occuped units information exists in the system$/) do |tabl
       count: entry['Occupied Units'],
       author: entry['Who Entered'],
       datetime: DateTime.strptime(entry['Census DateTime'], '%m/%d/%Y %I:%M%p'),
-      created_at: DateTime.parse(entry['Entry DateTime'])
+      created_at: DateTime.strptime(entry['Entry DateTime'], '%m/%d/%Y %I:%M%p')
     )
   end
 end
 
 When(/^I ask for census information$/) do |table|
   query = table.hashes[0]
-  id = ShelterBuilding.find_by(name: query['Building']).id
+  slug = ShelterBuilding.find_by(name: query['Building']).slug
   params = {
-    building: id,
+    building: slug,
     shelter_date: query['Business Date']
   }
   params[:as_of] = query['As Of Date'] unless query['As Of Date'].blank?

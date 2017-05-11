@@ -41,5 +41,5 @@ Feature: Shelter Utilization Audit Trail
       | East Williamsburg Men's Shelter | EW Bldg 1 | kpeterson   |
     Then The system should provide the following census information
       | Shelter                         | Building  | Census DateTime   | As Of Date         | Occupied Units | Who Entered |
-      | East Williamsburg Men's Shelter | EW Bldg 1 | 06/05/2016 8:00pm | 06/06/2016 10:15am | 90             | kpeterson   |
       | East Williamsburg Men's Shelter | EW Bldg 1 | 06/06/2016 8:00pm | 06/07/2016 10:15am | 95             | kpeterson   |
+      | East Williamsburg Men's Shelter | EW Bldg 1 | 06/05/2016 8:00pm | 06/06/2016 10:15am | 90             | kpeterson   |
