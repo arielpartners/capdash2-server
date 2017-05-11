@@ -38,16 +38,25 @@ Given(/^The following census information exists in the system$/) do |table|
   end
 end
 
-When(/^I ask for following average utilization by calendar period$/) do |table|
-  # TODO: custom queries
-  get 'api/utilization'
+When(/^I ask for the following average utilization by calendar period$/) do |table|
+  query = table.hashes[0]
+  params = {
+    group_by: query['Group By'],
+    period_type: query['Period Type'],
+    period_ending: query['Period Ending']
+  }
+  get 'api/utilization', params
 end
 
 Then(/^The system should provide the following average utilization$/) do |table|
   results = JSON.parse(last_response.body)
   entries = table.hashes
   entries.each do |entry|
-    result = results.find { |r| entry['Facility'] == r['facility'] }
+    result =  if table.headers.include? 'Facility'
+                results.find { |r| entry['Facility'] == r['facility'] }
+              else
+                results.find { |r| entry['Group'] == r['group'] }
+              end
     formatted_percentage = "#{result['percentage']}%"
     expect(formatted_percentage).to eq(entry['Percentage'])
     expect(result['average_utilization'].to_s).to eq(entry['Average Utilization'])
