@@ -2,6 +2,17 @@
 
 Ruby on Rails 5 API
 
+## Major Technologies used
+
+  * [PosgreSQL](https://www.postgresql.org/) Open-source object-relational database
+  * [knock](https://github.com/nsarno/knock) Gem for [jwt](https://jwt.io/)-based authentication
+  * [Rubocop](https://github.com/bbatsov/rubocop) static code analyzer based on the Ruby style guide
+  * [Brakeman](https://github.com/presidentbeef/brakeman) open source static analysis tool which checks Ruby on Rails applications for security vulnerabilities
+  * [cucumber-rails](https://github.com/cucumber/cucumber-rails) Cucumber implementation for ruby on rails
+  * [rspec](http://rspec.info/) Testing framework for unit tests
+  * [statsd-instrument](https://github.com/Shopify/statsd-instrument) StatsD client for Ruby apps
+
+
 ## Dependencies
 
   * PostgreSQL: See main README for instructions on setting up postgres (using Docker)
