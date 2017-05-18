@@ -79,5 +79,5 @@ Feature: Shelter Utilization
       | Single Adult Male    | 06/11/2016    | 140              | 108                 | 77%        |
       | Single Adult Female  | 06/11/2016    | 200              | 198                 | 99%        |
       | Adult Family         | 06/11/2016    | 82               | 75                  | 91%        |
-      | Family with Children | 06/11/2016    | 884              | 683                 | 77%        |
+      | Family with Children | 06/11/2016    | 884              | 682                 | 77%        |
       | Total                | 06/11/2016    | 1306             | 1063                | 81%        |
