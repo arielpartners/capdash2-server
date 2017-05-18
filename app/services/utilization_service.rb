@@ -1,5 +1,7 @@
+#
+# This service class calculates shelter utilization
+#
 class UtilizationService
-
   def self.averages(params)
     case params[:group_by]
     when 'Shelter' then averages_by_building
@@ -36,19 +38,17 @@ class UtilizationService
   def self.averages_by_case_type
     utilization_counts = Hash.new(0)
     capacity_counts = Hash.new(0)
-    total_capacity = 0
-    total_utilization = 0
     averages_by_building.each do |entry|
       building = ShelterBuilding.find_by(name: entry['building'])
       utilization = entry['average_utilization']
       capacity = building.places.count
       case_type = building.case_type.name
       utilization_counts[case_type] += utilization.to_i
-      total_utilization += utilization.to_i
-      total_capacity += capacity
       capacity_counts[case_type] += capacity
+      utilization_counts['Total'] += utilization.to_i
+      capacity_counts['Total'] += capacity
     end
-    results = utilization_counts.map do |case_type, count|
+    utilization_counts.map do |case_type, count|
       {
         group: case_type,
         average_utilization: count,
@@ -56,13 +56,5 @@ class UtilizationService
         percentage: ((count.to_f / capacity_counts[case_type]) * 100).round
       }
     end
-    percentage = ((total_utilization.to_f / total_capacity) * 100).round
-    results << {
-      group: 'Total',
-      average_capacity: Place.count,
-      average_utilization: total_utilization,
-      percentage: percentage
-    }
-    results
   end
 end
