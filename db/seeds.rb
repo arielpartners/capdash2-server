@@ -2,15 +2,26 @@ User.create!(email: "sample_user@dhs.nyc.gov", name: "John Doe", password: "pass
 User.create!(email: "some_person@dhs.nyc.gov", name: "Jane Doe", password: "swordfish")
 User.create!(email: "anotherone@dhs.nyc.gov", name: "Nick Iorio", password: "example")
 
-single = CaseType.create!(name: 'Single Adult', description: 'Single adult homeless client')
+single = CaseType.create!(
+  name: 'Single Adult',
+  description: 'Single adult homeless client'
+)
 CaseType.create!(name: 'Single Adult Male', parent: single)
 CaseType.create!(name: 'Single Adult Female', parent: single)
 CaseType.create!(
   name: 'Adult Family',
-  description: 'Case type consisting of two or more related adults, no children under 18'
+  description: 'Case type consisting of two or more related adults, \
+no children under 18'
 )
-CaseType.create!(name: 'Family with Children', description: 'includes pregnant single women')
-ShelterType.create!(name: 'Shelter', description: 'regular shelter that does not qualify as tier 2')
+CaseType.create!(
+  name: 'Family with Children',
+  description: 'Case type consisting of families with children under 18, \
+includes pregnant single women'
+)
+ShelterType.create!(
+  name: 'Shelter',
+  description: 'regular shelter that does not qualify as tier 2'
+)
 ShelterType.create!(
   name: 'Late Arrival',
   code: 'FTC005',
