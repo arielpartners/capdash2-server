@@ -11,5 +11,5 @@ task :test do
   Rake::Task['rubocop'].execute
 
   puts 'Executing unit tests'
-  Rake::Task['unit_tests'].execute
+  Rake::Task['test_unit'].execute
 end
