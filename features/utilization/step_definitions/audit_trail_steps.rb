@@ -1,4 +1,6 @@
-Given(/^The following occuped units information exists in the system$/) do |table|
+
+# rubocop:disable Metrics/LineLength
+Given(/^The following occupied units information exists in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
     building = ShelterBuilding.find_by(name: entry['Building'])

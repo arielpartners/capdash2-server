@@ -15,7 +15,7 @@ Feature: Shelter Case Type
       | 3     | EW Bldg 1   | East Williamsburg Men's Shelter | 20   |                     |
       | 1     | Building 01 | Tillary Shelter                 | 20   | Single Adult Male   |
       | 2     | Building 01 | Tillary Shelter                 | 20   | Single Adult Female |
-    When we ask for the Case type for the building "<Building>" and floor "<Floor>"
+    When we ask for the case type for building "<Building>" and floor "<Floor>"
     Then we are told it is case type "<Case Type>"
 
   Examples:

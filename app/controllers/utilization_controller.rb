@@ -1,3 +1,6 @@
+#
+# Controller for maintaining information about shelter utilization
+#
 class UtilizationController < ApplicationController
   def show
     results = UtilizationService.averages(utilization_params)

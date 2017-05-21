@@ -1,5 +1,10 @@
 #
-# floor belonging to a building
+# A floor belonging to a shelter building
+# Note that a physical floor may have more than one Floor records,
+# for example, one per ProgramType or per CaseType
+# @see CaseType
+# @see ProgramType
+# @see schema.rb
 #
 class Floor < ApplicationRecord
   has_many :places, as: :compartment

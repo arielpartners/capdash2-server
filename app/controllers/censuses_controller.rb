@@ -1,5 +1,7 @@
+#
+# Controller for maintaining shelter census records
+#
 class CensusesController < ApplicationController
-
   def show
     @censuses = Census.order('datetime DESC, created_at DESC')
     census_params.each do |key, value|

@@ -1,6 +1,11 @@
+#
+# Provide friendly JSON for a Census for the front-end.  For example, by
+# returning names for related objects rather than the entire object.
+# @see Census
+#
 class CensusSerializer < ActiveModel::Serializer
   attributes :building, :shelter, :shelter_date, :as_of_date, :author,
-  :datetime, :occupied_units
+             :datetime, :occupied_units
 
   def shelter
     object.shelter_building.shelter.name

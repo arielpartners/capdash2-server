@@ -1,20 +1,21 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe ShelterDate, type: :model do
   context 'before a given cutoff hour' do
-    it 'shelter date will equal the previous date' do
+    it 'shelter date will equal the previous calendar date' do
       shelter_date = ShelterDate.new('3rd Feb 2017 02:05:06 AM', 3)
       expect(shelter_date.date).to eq(Date.parse('2nd Feb 2017'))
     end
   end
   context 'after a given cutoff hour' do
-    it 'shelter date will equal the current date' do
+    it 'shelter date will equal the current calendar date' do
       shelter_date = ShelterDate.new('3rd Feb 2017 06:05:06 AM', 3)
       expect(shelter_date.date).to eq(Date.parse('3nd Feb 2017'))
     end
   end
   context 'at a time before cutoff hour' do
-    it 'will be equal to the previous date' do
+    it 'shelter date will be equal to the previous calendar date' do
       day_one_after_cutoff = ShelterDate.new('2nd Feb 2017 11:15:06 AM', 3)
       day_two_before_cutoff = ShelterDate.new('3rd Feb 2017 02:05:06 AM', 3)
       expect(day_two_before_cutoff).to eq(day_one_after_cutoff)
