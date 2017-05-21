@@ -1,5 +1,6 @@
 #
 # a building that houses shelter units
+# @see schema.rb
 #
 class ShelterBuilding < ApplicationRecord
   has_many :floors

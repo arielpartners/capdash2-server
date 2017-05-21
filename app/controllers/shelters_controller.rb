@@ -1,3 +1,6 @@
+#
+# Controller for maintaining information about shelters
+#
 class SheltersController < ApplicationController
   def index
     if params[:provider]

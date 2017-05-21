@@ -1,7 +1,11 @@
+#
+# Controller for maintaining information about shelter buildings
+#
 class ShelterBuildingsController < ApplicationController
   def show
     slug = params[:id].parameterize
-    building = ShelterBuilding.find_by(shelter_id: params[:shelter_id], slug: slug)
+    building = ShelterBuilding.find_by(shelter_id: params[:shelter_id],
+                                       slug: slug)
     if building
       render json: building
     else

@@ -1,3 +1,12 @@
+#
+# A shelter bed where a client can be placed.
+# This is only used for adult placement,
+# since adults are placed in individual beds.
+# By contrast, families are placed in units.
+# Individual beds within family units are not tracked separately,
+# rather the unit simply records the number of beds present within a unit.
+# @see schema.rb
+#
 class Bed < Place
   after_initialize :ensure_bed_count
   validate :only_one_bed

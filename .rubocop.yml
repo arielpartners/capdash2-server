@@ -6,5 +6,5 @@ AllCops:
     - 'config/**/*'
     - '**/features/support/env.rb'
     - 'script/*'
-    - 'spec/*'
+    - 'test/*'
     - 'bin/*'

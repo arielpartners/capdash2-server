@@ -1,6 +1,7 @@
 #
 # An organization that operates one or more shelters within one of the five NYC
 # boroughs.
+# @see schema.rb
 #
 class Provider < ApplicationRecord
   has_many :shelters
