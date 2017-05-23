@@ -36,5 +36,5 @@ When(/^I login as the following user$/) do |table|
 end
 
 When(/^I navigate to the url (.*)$/) do |url|
-  get url
+  get url, format: :json
 end

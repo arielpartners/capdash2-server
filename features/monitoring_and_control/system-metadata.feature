@@ -10,6 +10,6 @@ Scenario: Get System Metadata
     | name              | capdash2   |
     | version           | $version   |
     | hostname          | $hostname  |
-    | rails_version     | 5.0.2      |
+    | rails_version     | 5.0.3      |
     | rails_environment | $env       |
     | database_adapter  | PostgreSQL |

@@ -18,6 +18,7 @@ When(/^I ask for census information$/) do |table|
   query = table.hashes[0]
   slug = ShelterBuilding.find_by(name: query['Building']).slug
   params = {
+    format: :json,
     building: slug,
     shelter_date: query['Business Date']
   }
