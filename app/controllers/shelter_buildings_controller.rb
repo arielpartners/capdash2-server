@@ -5,7 +5,7 @@ class ShelterBuildingsController < ApplicationController
   def show
     slug = params[:id].parameterize
     @shelter_building = ShelterBuilding.find_by(shelter_id: params[:shelter_id],
-                                       slug: slug)
+                                                slug: slug)
     if @shelter_building
       render 'show'
     else
