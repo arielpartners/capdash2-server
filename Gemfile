@@ -26,6 +26,7 @@ gem 'rack-cors'
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bundler', '~>1.14.6'
+gem 'jbuilder'
 gem 'knock'
 gem 'lograge'
 gem 'statsd-instrument'
