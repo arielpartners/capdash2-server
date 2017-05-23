@@ -9,8 +9,8 @@
 class Floor < ApplicationRecord
   has_many :places, as: :compartment
   belongs_to :shelter_building
-  belongs_to :case_type
-  belongs_to :program_type
+  belongs_to :case_type, foreign_key: :case_type_slug, primary_key: :slug
+  belongs_to :program_type, foreign_key: :program_type_slug, primary_key: :slug
 
   def case_type
     super || shelter_building.case_type

@@ -8,9 +8,9 @@ class ShelterBuilding < ApplicationRecord
   has_many :censuses
   belongs_to :address
   belongs_to :shelter, required: true
-  belongs_to :case_type
-  belongs_to :shelter_type
-  belongs_to :program_type
+  belongs_to :case_type, foreign_key: :case_type_slug, primary_key: :slug
+  belongs_to :shelter_type, foreign_key: :shelter_type_slug, primary_key: :slug
+  belongs_to :program_type, foreign_key: :program_type_slug, primary_key: :slug
 
   validates :slug, uniqueness: true
 
