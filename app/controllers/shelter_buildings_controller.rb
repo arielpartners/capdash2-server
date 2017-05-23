@@ -9,7 +9,7 @@ class ShelterBuildingsController < ApplicationController
     if @shelter_building
       render 'show'
     else
-      render status: 404, nothing: true
+      head :not_found
     end
   end
 
