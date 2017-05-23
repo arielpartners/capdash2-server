@@ -13,7 +13,7 @@ class ProvidersController < ApplicationController
     if @provider
       render json: @provider
     else
-      render status: 404
+      head :not_found
     end
   end
 end

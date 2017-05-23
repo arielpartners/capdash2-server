@@ -11,4 +11,13 @@ RSpec.describe ShelterBuilding, type: :model do
     shelter_building = ShelterBuilding.create(address: address)
     expect(shelter_building.name).to eq('33 Beaver St')
   end
+  it 'can be retrieved by case type' do
+    building = ShelterBuilding.create!(
+      name: 'example building',
+      case_type: CaseType.new(name: 'Single Adult Male'),
+      shelter: mock_model(Shelter)
+    )
+    expect(ShelterBuilding.find_by_case_type('Single Adult Male'))
+      .to include(building)
+  end
 end
