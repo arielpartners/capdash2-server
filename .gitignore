@@ -17,5 +17,5 @@
 .byebug_history
 
 .idea
-
+.DS_Store
 reports
