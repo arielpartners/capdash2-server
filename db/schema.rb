@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509201302) do
+ActiveRecord::Schema.define(version: 20170523155613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20170509201302) do
     t.datetime "updated_at",  null: false
     t.integer  "parent_id"
     t.text     "description"
+    t.string   "slug"
+    t.index ["slug"], name: "index_classifiers_on_slug", using: :btree
   end
 
   create_table "floors", force: :cascade do |t|
@@ -53,8 +55,8 @@ ActiveRecord::Schema.define(version: 20170509201302) do
     t.integer  "shelter_building_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "case_type_id"
-    t.integer  "program_type_id"
+    t.string   "case_type_slug"
+    t.string   "program_type_slug"
     t.index ["shelter_building_id"], name: "index_floors_on_shelter_building_id", using: :btree
   end
 
@@ -79,16 +81,16 @@ ActiveRecord::Schema.define(version: 20170509201302) do
 
   create_table "shelter_buildings", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "address_id"
     t.integer  "surge_beds"
     t.integer  "shelter_id"
     t.datetime "date_opened"
     t.string   "slug"
-    t.integer  "case_type_id"
-    t.integer  "shelter_type_id"
-    t.integer  "program_type_id"
+    t.string   "case_type_slug"
+    t.string   "shelter_type_slug"
+    t.string   "program_type_slug"
     t.index ["address_id"], name: "index_shelter_buildings_on_address_id", using: :btree
     t.index ["shelter_id"], name: "index_shelter_buildings_on_shelter_id", using: :btree
   end

@@ -69,8 +69,11 @@ end
 Given(/^Shelter Buildings in the system$/) do |table|
   entries = table.hashes
   entries.each do |entry|
-    address  = Address.new(line1:   entry['Street Address'],
-                           borough: entry['Borough'], zip: entry['Zip Code'])
+    address = Address.new(
+      line1:   entry['Street Address'],
+      borough: entry['Borough'].downcase,
+      zip: entry['Zip Code']
+    )
     provider = Provider.new(name: entry['Provider'])
     shelter  = Shelter.new(name: entry['Shelter'], provider: provider)
     ShelterBuilding.create!(
