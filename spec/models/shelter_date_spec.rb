@@ -37,4 +37,8 @@ RSpec.describe ShelterDate, type: :model do
     expect(sorted.first).to eq(a)
     expect(sorted.last).to eq(c)
   end
+  it 'can be printed as a string' do
+    shelter_date = ShelterDate.new('3rd Feb 2017 02:05:06 AM', 3)
+    expect(shelter_date.to_s).to eq('2017-02-02')
+  end
 end
