@@ -9,7 +9,7 @@ class UtilizationService
     when 'Case Type' then
       averages_by_case_type
     else
-      raise('Invalid group_by parameter')
+      raise ArgumentError, 'Invalid group_by parameter'
     end
   end
 
