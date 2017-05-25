@@ -53,6 +53,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.1.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     concurrent-ruby (1.0.5)
     cucumber (2.4.0)
       builder (>= 2.1.2)
@@ -104,6 +108,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.7.0)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
     multi_json (1.12.1)
@@ -214,12 +219,14 @@ DEPENDENCIES
   brakeman
   bundler (~> 1.14.6)
   byebug
+  carrierwave
   cucumber-rails
   database_cleaner
   jbuilder
   knock
   listen (~> 3.0.5)
   lograge
+  mini_magick
   pg (= 0.20.0)
   puma (~> 3.0)
   rack-cors

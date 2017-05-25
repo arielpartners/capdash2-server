@@ -25,9 +25,11 @@ gem 'puma', '~> 3.0'
 gem 'rack-cors'
 
 gem 'bundler', '~>1.14.6'
+gem 'carrierwave'
 gem 'jbuilder'
 gem 'knock'
 gem 'lograge'
+gem 'mini_magick'
 gem 'statsd-instrument'
 
 group :development, :test do
