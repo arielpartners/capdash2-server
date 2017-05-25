@@ -4,8 +4,10 @@
 # the reports, one stop shopping for tests.
 # As additional types of automated tests are added, we should add them here.
 #
-# Caveat: we need PR builds to be quick, so this script may omit longer-running tests.
+# Caveat: we need PR builds to be quick, so this script may omit longer-running
+# tests.
 #
+Rake::Task[:test].clear
 task :test do
   puts 'Executing Static Analysis'
   Rake::Task['rubocop'].execute
