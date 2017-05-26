@@ -48,6 +48,20 @@ Ruby on Rails 5 API
     * `brakeman -o reports/security/brakeman.html` to save a report
   * For details about Ruby on Rails security, see [OWASP Rails Security](https://www.owasp.org/images/8/89/Rails_Security_2.pdf). Brakeman covers much of this, and more automated security testing will be added according to the guidance found there.
 
+## Troubleshooting
+
+When running into a gem version conflict, try:
+```
+gem uninstall {gemname}
+bundle install
+```
+Or, for rvm gemset conflicts:
+```
+rvm gemset use global
+gem uninstall {gemname}
+rvm gemset use default
+```
+
 ## Logging and Monitoring
 
 Logs for each environment can be found in [`log/`](./log/)
