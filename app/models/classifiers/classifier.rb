@@ -21,6 +21,10 @@ class Classifier < ApplicationRecord
   has_many :children, class_name: 'Classifier', foreign_key: 'parent_id'
   before_save :ensure_slug
 
+  def to_s
+    name
+  end
+
   private
 
   def ensure_slug

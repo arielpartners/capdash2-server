@@ -22,33 +22,33 @@ dhs = Provider.create!(name: 'NYC Department Of Homeless Services')
 auburn = Shelter.create!(name: 'Auburn Family Residence', provider: dhs)
 a3 = Address.create!(line1: '32 Auburn Place', borough: 'brooklyn', city: 'Brooklyn', state: 'NY', zip: '11205')
 ShelterBuilding.create!(
-  address: a3, shelter: auburn, case_type: 'Families with Children'
+  address: a3, shelter: auburn, case_type: 'Family with Children'
 )
 
 life = Shelter.create!(name: 'LIFE', provider: dhs)
 a4 = Address.create!(line1: '78 Catherine Street', borough: 'manhattan', city: 'New York', state: 'NY', zip: '10038')
 ShelterBuilding.create!(
-  address: a4, shelter: life, case_type: 'Families with Children'
+  address: a4, shelter: life, case_type: 'Family with Children'
 )
 
 aguila = Provider.create!(name: 'AGUILA')
 bna = Shelter.create!(name: 'BRONX NEIGHBORHOOD AGUILA', provider: aguila)
 a5 = Address.create!(line1: '1101 Manor Avenue', borough: 'bronx', city: 'Bronx', state: 'NY', zip: '10472')
 ShelterBuilding.create!(
-  address: a5, shelter: bna, case_type: 'Families with Children'
+  address: a5, shelter: bna, case_type: 'Family with Children'
 )
 a6 = Address.create!(line1: '708 EAST 243 STREET', borough: 'bronx', city: 'Bronx', state: 'NY', zip: '10470')
 ShelterBuilding.create!(
-  address: a6, shelter: bna, case_type: 'Families with Children'
+  address: a6, shelter: bna, case_type: 'Family with Children'
 )
 
 a7 = Address.create!(line1: '1208 WESTCHESTER AVENUE', borough: 'bronx', city: 'Bronx', state: 'NY', zip: '10459')
-ShelterBuilding.create!(address: a7, shelter: bac2, case_type: 'Families with Children')
+ShelterBuilding.create!(address: a7, shelter: bac2, case_type: 'Family with Children')
 
 help = Provider.create!(name: 'Help U.S.A')
 hbc = Shelter.create!(name: 'HELP - BRONX CROTONA', provider: help)
 a8 = Address.create!(line1: '785 CROTONA PARK NORTH', borough: 'bronx', city: 'Bronx', state: 'NY', zip: '10460')
-help_building = ShelterBuilding.create!(address: a8, shelter: hbc,  case_type: 'Families with Children')
+help_building = ShelterBuilding.create!(address: a8, shelter: hbc,  case_type: 'Family with Children')
 
 
 
