@@ -4,7 +4,7 @@ Ruby on Rails 5 API
 
 ## Documentation
 
-  * Run `rake yard` to generate model documentation in the doc folder
+  * Run `yardoc` or `rake yard` to generate model documentation in the doc folder
   * `yard server --reload` for a live documentation server
 
 ## Major Technologies used
