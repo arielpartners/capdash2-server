@@ -1,0 +1,3 @@
+--title 'Capdash2-server documentation'
+--readme README.md
+app/models/**/*.rb
