@@ -9,6 +9,8 @@
 #
 Rake::Task[:test].clear
 task :test do
+  Rake::Task['db:test:prepare'].execute
+
   puts 'Executing Static Analysis'
   Rake::Task['rubocop'].execute
 
