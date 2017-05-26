@@ -1,6 +1,5 @@
 #
 # a building that houses shelter units
-# @see schema.rb
 #
 # == Schema Information
 #

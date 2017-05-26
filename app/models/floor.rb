@@ -21,10 +21,12 @@ class Floor < ApplicationRecord
   belongs_to :case_type, foreign_key: :case_type_slug, primary_key: :slug
   belongs_to :program_type, foreign_key: :program_type_slug, primary_key: :slug
 
+  # @return [CaseType]
   def case_type
     super || shelter_building.case_type
   end
 
+  # @return [ProgramType]
   def program_type
     super || shelter_building.program_type
   end
