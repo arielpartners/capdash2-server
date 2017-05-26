@@ -12,7 +12,7 @@ class ShelterDate
   attr_reader :date, :cutoff_hour
 
   # @param datetime in string or object form
-  # @param cutoff integer representing the cutoff hour
+  # @param cutoff_hour [Integer] integer representing cutoff hour
   def initialize(datetime, cutoff_hour)
     @cutoff_time = cutoff_hour
     datetime = DateTime.parse(datetime) if datetime.is_a? String
