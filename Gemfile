@@ -34,11 +34,13 @@ gem 'statsd-instrument'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'annotate'
   gem 'brakeman', require: false
   gem 'byebug', platform: :mri
   gem 'rspec-activemodel-mocks'
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop', '~> 0.47.1', require: false
+  gem 'yard'
 end
 
 group :test do

@@ -1,6 +1,22 @@
 #
 # a building that houses shelter units
-# @see schema.rb
+#
+# == Schema Information
+#
+# Table name: shelter_buildings
+#
+#  id                :integer          not null, primary key
+#  name              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  address_id        :integer
+#  surge_beds        :integer
+#  shelter_id        :integer
+#  date_opened       :datetime
+#  slug              :string
+#  case_type_slug    :string
+#  shelter_type_slug :string
+#  program_type_slug :string
 #
 class ShelterBuilding < ApplicationRecord
   has_many :floors

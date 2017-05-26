@@ -11,7 +11,20 @@
 # A shelter building may have a capacity of 88, a census of 80, 4 offline,
 # and availability of 4. Shelter providers are remunerated based on final
 # nightly census tallies averaged over a period of time.
-# @see schema.rb
+#
+# == Schema Information
+#
+# Table name: censuses
+#
+#  id                  :integer          not null, primary key
+#  shelter_building_id :integer
+#  count               :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  utilization         :float
+#  author              :string
+#  shelter_date        :date
+#  datetime            :datetime
 #
 class Census < ApplicationRecord
   belongs_to :shelter_building, required: true

@@ -5,7 +5,19 @@
 # By contrast, families are placed in units.
 # Individual beds within family units are not tracked separately,
 # rather the unit simply records the number of beds present within a unit.
-# @see schema.rb
+#
+# == Schema Information
+#
+# Table name: places
+#
+#  id               :integer          not null, primary key
+#  name             :string
+#  type             :string
+#  compartment_id   :integer
+#  compartment_type :integer
+#  bed_count        :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 class Bed < Place
   after_initialize :ensure_bed_count
