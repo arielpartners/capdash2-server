@@ -6,7 +6,6 @@
 # actually arrive at a shelter until after midnight.  ShelterDate takes a real
 # datetime, and a cutoff hour (integer representing hours past midnight) and
 # returns a "shelter date".
-# @see schema.rb
 #
 class ShelterDate
   include Comparable

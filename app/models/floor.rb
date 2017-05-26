@@ -2,9 +2,18 @@
 # A floor belonging to a shelter building
 # Note that a physical floor may have more than one Floor records,
 # for example, one per ProgramType or per CaseType
-# @see CaseType
-# @see ProgramType
-# @see schema.rb
+#
+# == Schema Information
+#
+# Table name: floors
+#
+#  id                  :integer          not null, primary key
+#  name                :string
+#  shelter_building_id :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  case_type_slug      :string
+#  program_type_slug   :string
 #
 class Floor < ApplicationRecord
   has_many :places, as: :compartment
