@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "capdash2 cdserver endpoints",
-		"_postman_id": "16b988bf-9b03-dcc4-740e-ccbbdefe1dd2",
+		"_postman_id": "5a28ba95-f9a2-cb0b-1467-46bc36a23554",
 		"description": "Collection of capdash2 endpoints for cdserver",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 			"description": "Authentication endpoints",
 			"item": [
 				{
-					"name": "user token",
+					"name": "login",
 					"request": {
 						"url": "http://{{host}}/api/user_token",
 						"method": "POST",
@@ -43,7 +43,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -60,7 +63,10 @@
 						"url": "{{host}}/api/census",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -71,7 +77,10 @@
 						"url": "{{host}}/api/census?building=785-crotona-park-north",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -82,7 +91,10 @@
 						"url": "{{host}}/api/census?building=785-crotona-park-north&shelter_date=06/05/2016",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -93,7 +105,10 @@
 						"url": "{{host}}/api/census?author=niorio",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -104,7 +119,10 @@
 						"url": "{{host}}/api/census?shelter_date=06/05/2016",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -115,7 +133,10 @@
 						"url": "{{host}}/api/census?as_of=06/07/2016&shelter_date=06/05/2016&building=785-crotona-park-north",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -126,7 +147,10 @@
 						"url": "{{host}}/api/census?as_of=06/07/2016",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -143,7 +167,10 @@
 						"url": "{{host}}/api/providers",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -154,7 +181,10 @@
 						"url": "{{host}}/api/providers/samaritan-village",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -171,7 +201,10 @@
 						"url": "{{host}}/api/shelter_buildings",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -182,7 +215,10 @@
 						"url": "{{host}}/api/shelters/1/buildings/79-00-queens-boulevard",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "nested within shelter"
 					},
 					"response": []
@@ -199,7 +235,10 @@
 						"url": "{{host}}/api/shelters",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -210,7 +249,10 @@
 						"url": "{{host}}/api/shelters?provider=nyc-department-of-homeless-services",
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
