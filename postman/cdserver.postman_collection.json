@@ -102,7 +102,7 @@
 				{
 					"name": "census by author",
 					"request": {
-						"url": "{{host}}/api/census?author=niorio",
+						"url": "{{host}}/api/census?entered_by=niorio",
 						"method": "GET",
 						"header": [],
 						"body": {
