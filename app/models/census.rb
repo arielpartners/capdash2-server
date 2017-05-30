@@ -22,7 +22,7 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  utilization         :float
-#  author              :string
+#  entered_by          :string
 #  shelter_date        :date
 #  census_time         :datetime
 #
@@ -34,7 +34,7 @@ class Census < ApplicationRecord
   scope :shelter_date, (lambda do |date|
     where shelter_date: Date.strptime(date, '%m/%d/%Y')
   end)
-  scope :author, ->(author) { where author: author }
+  scope :entered_by, ->(name) { where entered_by: name }
   scope :as_of, ->(date) { where('created_at <= ?', date) }
   scope :building, (lambda do |slug|
     id = ShelterBuilding.find_by(slug: slug)

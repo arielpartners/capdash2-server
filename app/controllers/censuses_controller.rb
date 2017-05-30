@@ -14,6 +14,6 @@ class CensusesController < ApplicationController
   private
 
   def census_params
-    params.permit(:building, :shelter_date, :author, :as_of)
+    params.permit(:building, :shelter_date, :entered_by, :as_of)
   end
 end

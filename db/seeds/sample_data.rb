@@ -70,9 +70,9 @@ units.each do |unit|
   Unit.create!(name: unit[:name], compartment: unit[:floor], bed_count: unit[:beds])
 end
 
-Census.create!(shelter_building: help_building, count: 90, author: 'kpeterson', census_time: '2016-06-05 8:00pm ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 95, author: 'cstrong', census_time: '2016-06-05 10:00pm ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 97, author: 'bgramman', census_time: '2016-06-06 12:00am ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 98, author: 'bgramman', census_time: '2016-06-06 2:00am ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 103, author: 'niorio', census_time: '2016-06-06 2:00am ', created_at: '2016-06-09 2:30pm' )
-Census.create!(shelter_building: help_building, count: 95, author: 'kpeterson', census_time: '2016-06-06 8:00pm', created_at: '2016-06-07 10:15am' )
+Census.create!(shelter_building: help_building, count: 90, entered_by: 'kpeterson', census_time: '2016-06-05 8:00pm ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 95, entered_by: 'cstrong', census_time: '2016-06-05 10:00pm ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 97, entered_by: 'bgramman', census_time: '2016-06-06 12:00am ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 98, entered_by: 'bgramman', census_time: '2016-06-06 2:00am ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 103, entered_by: 'niorio', census_time: '2016-06-06 2:00am ', created_at: '2016-06-09 2:30pm' )
+Census.create!(shelter_building: help_building, count: 95, entered_by: 'kpeterson', census_time: '2016-06-06 8:00pm', created_at: '2016-06-07 10:15am' )

@@ -7,7 +7,7 @@ Given(/^The following occupied units information exists in the system$/) do |tab
     Census.create!(
       shelter_building: building,
       count: entry['Occupied Units'],
-      author: entry['Who Entered'],
+      entered_by: entry['Who Entered'],
       census_time: DateTime.strptime(entry['Census DateTime'], '%m/%d/%Y %I:%M%p'),
       created_at: DateTime.strptime(entry['Entry DateTime'], '%m/%d/%Y %I:%M%p')
     )
@@ -23,7 +23,7 @@ When(/^I ask for census information$/) do |table|
     shelter_date: query['Business Date']
   }
   params[:as_of] = query['As Of Date'] unless query['As Of Date'].blank?
-  params[:author] = query['Who Entered']
+  params[:entered_by] = query['Who Entered']
   get 'api/census', params
 end
 
@@ -35,6 +35,6 @@ Then(/^The system should provide the following census information$/) do |table|
     expect(census['building']).to eq(expected['Building'])
     expect(census['census_time']).to eq(expected['Census DateTime'])
     expect(census['occupied_units']).to eq(expected['Occupied Units'].to_i)
-    expect(census['author']).to eq(expected['Who Entered'])
+    expect(census['entered_by']).to eq(expected['Who Entered'])
   end
 end
