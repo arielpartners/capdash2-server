@@ -24,7 +24,7 @@
 #  utilization         :float
 #  author              :string
 #  shelter_date        :date
-#  datetime            :datetime
+#  census_time         :datetime
 #
 class Census < ApplicationRecord
   belongs_to :shelter_building, required: true
@@ -44,7 +44,7 @@ class Census < ApplicationRecord
   private
 
   def set_shelter_date
-    self.shelter_date = ShelterDate.new(datetime, 3).date
+    self.shelter_date = ShelterDate.new(census_time, 3).date
   end
 
   def calculate_utilization

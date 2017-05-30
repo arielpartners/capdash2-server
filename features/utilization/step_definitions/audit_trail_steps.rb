@@ -8,7 +8,7 @@ Given(/^The following occupied units information exists in the system$/) do |tab
       shelter_building: building,
       count: entry['Occupied Units'],
       author: entry['Who Entered'],
-      datetime: DateTime.strptime(entry['Census DateTime'], '%m/%d/%Y %I:%M%p'),
+      census_time: DateTime.strptime(entry['Census DateTime'], '%m/%d/%Y %I:%M%p'),
       created_at: DateTime.strptime(entry['Entry DateTime'], '%m/%d/%Y %I:%M%p')
     )
   end
@@ -33,7 +33,7 @@ Then(/^The system should provide the following census information$/) do |table|
     census = body[i]
     expect(census['shelter']).to eq(expected['Shelter'])
     expect(census['building']).to eq(expected['Building'])
-    expect(census['datetime']).to eq(expected['Census DateTime'])
+    expect(census['census_time']).to eq(expected['Census DateTime'])
     expect(census['occupied_units']).to eq(expected['Occupied Units'].to_i)
     expect(census['author']).to eq(expected['Who Entered'])
   end
