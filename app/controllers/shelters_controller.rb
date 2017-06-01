@@ -9,6 +9,6 @@ class SheltersController < ApplicationController
     else
       @shelters = Shelter.all
     end
-    render json: @shelters
+    render 'index'
   end
 end
