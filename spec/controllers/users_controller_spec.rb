@@ -10,4 +10,5 @@ RSpec.describe UsersController, type: :controller do
     expect(response_body['email']).to eq('user@example.com')
     expect(response_body['name']).to eq('John Doe')
   end
+  
 end
