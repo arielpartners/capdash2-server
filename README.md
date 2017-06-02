@@ -35,28 +35,28 @@ Ruby on Rails 5 API
 
 ## Running tests
 
-  * Before running tests, the database and server must be running
+  * Before running tests, the database must be running
   * Run `rake test` to run rubocop and rspec unit tests
-  * After running tests, unit test results report can be found at `reports/unit/results/index.html`
+  * After running tests, unit test results report can be found at `reports/unit/index.html`
   * In addition, the code coverage report can be found at `reports/coverage/index.html`
 
 ### Unit tests
 
-  * Before running tests, the database and server must be running
+  * Before running tests, the database must be running
   * Run `rake test_unit` to run unit tests alone (no rubocop).
-  * After running tests, unit test results report can be found at `reports/unit/results/index.html`
+  * After running tests, unit test results report can be found at `reports/unit/index.html`
   * In addition, the code coverage report can be found at `reports/coverage/index.html`
-  
+
 ### Feature tests
 
   * Before running tests, the database and server must be running
   * Run `rake test_feature` to run cucumber tests
-  * After running tests, the feature test report is saved to `reports/feature/results/index.html`
+  * After running tests, the feature test report is saved to `reports/feature/index.html`
   * In addition, the code coverage report can be found at `reports/coverage/index.html`
-  
+
 ### Code Coverage
 
-  * Please note: code coverage accumulates results for *both* unit tests and 
+  * Please note: code coverage accumulates results for *both* unit tests and
   * feature tests, so you will only get partial results until you run both sets of tests.
   * After running tests, code coverage report can be found at `reports/coverage/index.html`
 
