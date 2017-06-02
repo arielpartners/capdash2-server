@@ -3,7 +3,7 @@ begin
 
   RSpec::Core::RakeTask.new(:test_unit) do |t|
     t.rspec_opts = '--format documentation '\
-      '--format html --out reports/unit/results/index.html'
+      '--format html --out reports/unit/index.html'
   end
 rescue LoadError
   desc 'rspec Rake task not available'
