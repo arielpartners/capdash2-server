@@ -21,7 +21,6 @@
 #  count               :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  utilization         :float
 #  entered_by          :string
 #  shelter_date        :date
 #  census_time         :datetime
@@ -29,7 +28,7 @@
 class Census < ApplicationRecord
   belongs_to :shelter_building, required: true
 
-  before_save :calculate_utilization, :set_shelter_date
+  before_save :set_shelter_date
 
   scope :shelter_date, (lambda do |date|
     where shelter_date: Date.strptime(date, '%m/%d/%Y')
@@ -45,9 +44,5 @@ class Census < ApplicationRecord
 
   def set_shelter_date
     self.shelter_date = ShelterDate.new(census_time, 3).date
-  end
-
-  def calculate_utilization
-    self.utilization = (count.to_f / shelter_building.places.count).round(3)
   end
 end
