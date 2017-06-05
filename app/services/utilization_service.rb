@@ -3,10 +3,10 @@
 #
 class UtilizationService
   def self.averages(params)
-    case params[:group_by]
-    when 'Shelter' then
+    case params[:group_by].parameterize
+    when 'shelter'
       averages_by_building
-    when 'Case Type' then
+    when 'case-type'
       averages_by_case_type
     else
       raise ArgumentError, 'Invalid group_by parameter'
