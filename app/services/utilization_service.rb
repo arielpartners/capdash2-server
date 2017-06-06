@@ -38,14 +38,14 @@ class UtilizationService
   def self.averages_by_case_type
     utilization_counts = Hash.new(0)
     capacity_counts    = Hash.new(0)
-    averages_by_building.each do |entry|
-      building = ShelterBuilding.find_by(name: entry[:building])
-      utilization = entry[:average_utilization]
+    utilizations = Census.group(:shelter_building_id).average(:count)
+    utilizations.each do |sb_id, utilization|
+      building = ShelterBuilding.find(sb_id)
+      case_type = building.case_type_slug
       capacity = building.places.count
-      case_type = building.case_type.name
-      utilization_counts[case_type] += utilization.to_i
+      utilization_counts[case_type] += utilization.round
       capacity_counts[case_type] += capacity
-      utilization_counts['Total'] += utilization.to_i
+      utilization_counts['Total'] += utilization.round
       capacity_counts['Total'] += capacity
     end
     utilization_counts.map do |case_type, count|
