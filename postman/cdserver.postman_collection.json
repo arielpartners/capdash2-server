@@ -266,7 +266,26 @@
 				{
 					"name": "Utilization by Case-Type",
 					"request": {
-						"url": "{{host}}/api/utilization?group_by=case-type",
+						"url": {
+							"raw": "{{host}}/api/shelter-utilization?group_by=case-type",
+							"auth": {},
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"shelter-utilization"
+							],
+							"query": [
+								{
+									"key": "group_by",
+									"value": "case-type",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -280,7 +299,26 @@
 				{
 					"name": "Utilization by Shelter",
 					"request": {
-						"url": "{{host}}/api/utilization?group_by=shelter",
+						"url": {
+							"raw": "{{host}}/api/shelter-utilization?group_by=shelter",
+							"auth": {},
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"shelter-utilization"
+							],
+							"query": [
+								{
+									"key": "group_by",
+									"value": "shelter",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [],
 						"body": {

@@ -46,7 +46,7 @@ When(/^I ask for the following average utilization by calendar period$/) do |tab
     period_type:   query['Period Type'],
     period_ending: query['Period Ending']
   }
-  get 'api/utilization', params
+  get 'api/shelter-utilization', params
 end
 # rubocop:enable Metrics/LineLength
 
