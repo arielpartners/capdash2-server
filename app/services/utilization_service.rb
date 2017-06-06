@@ -17,16 +17,21 @@ class UtilizationService
   # rubocop:disable Metrics/AbcSize
   def self.averages_by_building
     utilizations = Census.group(:shelter_building_id).average(:count)
-    utilizations.map do |building_id, utilization|
-      building = ShelterBuilding.find(building_id)
-      capacity = building.places.count
-      {
-        facility: building.shelter.name,
-        building: building.name,
-        address: building.address.line1,
-        average_utilization: utilization.round,
-        percentage: ((utilization / capacity) * 100).round
+    ShelterBuilding.all.map do |sb|
+      capacity = sb.places.count
+      utilization = utilizations[sb.id]
+      record = {
+        facility: sb.shelter.name,
+        building: sb.name,
+        address: sb.address.line1,
+        average_utilization: nil,
+        percentage: nil
       }
+      if utilization
+        record[:average_utilization] = utilization.round
+        record[:percentage] = ((utilization / capacity) * 100).round
+      end
+      record
     end
   end
 
