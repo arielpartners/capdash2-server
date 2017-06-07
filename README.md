@@ -1,6 +1,8 @@
-# Capdash 2
+# Capacity Dashboard 2.0
 
-Ruby on Rails 5 API
+See https://github.com/arielpartners/capdash2 for background information and detailed guide for setting up pre-requisites for development.
+
+Capdash2 server is based on Ruby on Rails 5 API
 
 ## Documentation
 
