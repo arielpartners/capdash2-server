@@ -24,24 +24,10 @@ class Utilization
     Census.group(:shelter_building_id).average(:count)
   end
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def averages_by_building
     ShelterBuilding.all.map do |sb|
-      capacity = sb.places.count
-      utilization = utilizations[sb.id]
-      record = {
-        facility: sb.shelter.name,
-        building: sb.name,
-        address: sb.address.line1,
-        average_utilization: nil,
-        percentage: nil
-      }
-      if utilization
-        record[:average_utilization] = utilization.round
-        record[:percentage] = ((utilization / capacity) * 100).round
-      end
-      record
+      shelter_utilization = ShelterUtilization.new(sb)
+      shelter_utilization.calculate_percentage(utilizations[sb.id])
     end
   end
 
