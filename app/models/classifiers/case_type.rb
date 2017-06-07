@@ -16,4 +16,5 @@
 #  slug        :string
 #
 class CaseType < Classifier
+  has_many :shelter_buildings, foreign_key: :case_type_slug, primary_key: :slug
 end

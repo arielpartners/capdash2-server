@@ -32,23 +32,14 @@ class Utilization
   end
 
   def averages_by_case_type
-    utilization_counts = Hash.new(0)
-    capacity_counts    = Hash.new(0)
-    utilizations.each do |sb_id, utilization|
-      building = ShelterBuilding.find(sb_id)
-      case_type = building.case_type.name
-      capacity = building.places.count
-      utilization_counts[case_type] += utilization.round
-      capacity_counts[case_type] += capacity
-      utilization_counts['Total'] += utilization.round
-      capacity_counts['Total'] += capacity
-    end
-    utilization_counts.map do |case_type, count|
+    utilizations = Census.includes(shelter_building: :case_type).group('shelter_buildings.case_type_slug').average(:count)
+    utilizations.map do |case_type, utilization|
+      capacity = CaseType.find_by(slug: case_type).shelter_buildings.joins(:places).count(:places)
       {
         group: case_type,
-        average_utilization: count,
-        average_capacity: capacity_counts[case_type],
-        percentage: ((count.to_f / capacity_counts[case_type]) * 100).round
+        average_capacity: capacity,
+        average_utilization: utilization.round,
+        percentage: ((utilization / capacity) * 100).round
       }
     end
   end
