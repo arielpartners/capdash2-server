@@ -5,7 +5,7 @@
 #
 class ShelterUtilization
   attr_accessor :facility, :building, :address, :average_utilization,
-                :percentage, :capacity, :group
+                :percentage, :capacity, :group, :shelter_date
 
   def self.for_all_buildings
     ShelterBuilding.all.map do |sb|
@@ -34,6 +34,7 @@ class ShelterUtilization
   end
 
   def initialize
+    self.shelter_date = Date.today
     self.average_utilization = nil
     self.percentage = nil
   end
