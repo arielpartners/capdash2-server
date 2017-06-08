@@ -92,7 +92,7 @@ rvm gemset use default
 Logs for each environment can be found in [`log/`](./log/)
 Example of production log:
 ```
-D, [2017-03-15T16:02:33.413314 #57302] DEBUG -- :   [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sample_user@dhs.nyc.gov"], ["LIMIT", 1]]
+D, [2017-03-15T16:02:33.413314 #57302] DEBUG -- :   [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sample_user@dhs.nyc.gov"], ["LIMIT", 1]]
 I, [2017-03-15T16:02:33.560639 #57302]  INFO -- : method=POST path=/user_token format=*/* controller=UserTokenController action=create status=201 duration=183.07 view=0.90 db=15.02 params={"auth"=>{"email"=>"sample_user@dhs.nyc.gov", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"sample_user@dhs.nyc.gov", "password"=>"[FILTERED]"}}} ip=::1
 ```
 StatsD is used for Application Performance Monitoring (APM). In production, `statsd-instrument` will send UDP packets to our StatsD daemon. In development, StatD measurements are simply logged.
