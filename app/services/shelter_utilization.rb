@@ -34,9 +34,13 @@ class ShelterUtilization
   end
 
   def initialize(params = {})
-    period = params[:period_type] || :week
-    self.from_date = 1.send(period).ago.to_date
-    self.to_date = params[:period_ending] || Date.today
+    period = params[:period_type] || :day
+    self.to_date = if params[:period_ending]
+                     Date.parse(params[:period_ending])
+                   else
+                     ShelterDate.new(Time.now).date
+                   end
+    self.from_date = to_date - 1.send(period)
     self.average_utilization = nil
     self.percentage = nil
   end
