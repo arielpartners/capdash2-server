@@ -1,5 +1,7 @@
 #
-# Domain model for shelter utilization
+# ShelterUtilization tracks the utilization (in both raw numbers and as a
+# pecentage of capcity) of ShelterBuildings. It also can aggregate those
+# numbers by case-type or for the entire system.
 #
 class ShelterUtilization
   attr_accessor :facility, :building, :address, :average_utilization,
