@@ -8,6 +8,7 @@ Capdash2 server is based on Ruby on Rails 5 API
 
   * Run `yardoc` or `rake yard` to generate model documentation in the doc folder
   * `yard server --reload` for a live documentation server
+  * [**UML Diagram**](UML-Diagram.uml)
 
 ## Major Technologies used
 
