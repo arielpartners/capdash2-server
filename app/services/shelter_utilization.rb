@@ -5,17 +5,17 @@
 #
 class ShelterUtilization
   attr_accessor :facility, :building, :address, :average_utilization,
-                :percentage, :capacity, :group, :shelter_date
+                :percentage, :capacity, :group, :from_date, :to_date
 
-  def self.for_all_buildings
+  def self.for_all_buildings(params)
     ShelterBuilding.all.map do |sb|
-      new.for_building(sb)
+      new(params).for_building(sb)
     end
   end
 
-  def self.for_all_case_types
+  def self.for_all_case_types(params)
     group_results = CaseType.all.map do |ct|
-      new.for_group(ct)
+      new(params).for_group(ct)
     end
     group_results << totals
   end
@@ -33,8 +33,10 @@ class ShelterUtilization
     Census.group(:shelter_building).average(:count)
   end
 
-  def initialize
-    self.shelter_date = Date.today
+  def initialize(params = {})
+    period = params[:period_type] || :week
+    self.from_date = 1.send(period).ago.to_date
+    self.to_date = params[:period_ending] || Date.today
     self.average_utilization = nil
     self.percentage = nil
   end

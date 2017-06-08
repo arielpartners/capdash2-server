@@ -43,8 +43,8 @@ When(/^I ask for the following average utilization by calendar period$/) do |tab
   query  = table.hashes[0]
   params = {
     group_by:      query['Group By'].parameterize,
-    period_type:   query['Period Type'],
-    period_ending: query['Period Ending']
+    period_type:   query['Period Type'].parameterize,
+    period_ending: query['Period Ending'].parameterize
   }
   get 'api/shelter-utilization', params
 end
