@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "capdash2 cdserver endpoints",
-		"_postman_id": "5a28ba95-f9a2-cb0b-1467-46bc36a23554",
+		"_postman_id": "e2104721-2d99-1817-c3de-7110d9a8b163",
 		"description": "Collection of capdash2 endpoints for cdserver",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -247,6 +247,78 @@
 					"name": "get shelters for a provider",
 					"request": {
 						"url": "{{host}}/api/shelters?provider=nyc-department-of-homeless-services",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Utilization",
+			"description": "",
+			"item": [
+				{
+					"name": "Utilization by Case-Type",
+					"request": {
+						"url": {
+							"raw": "{{host}}/api/shelter-utilization?group_by=case-type",
+							"auth": {},
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"shelter-utilization"
+							],
+							"query": [
+								{
+									"key": "group_by",
+									"value": "case-type",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utilization by Shelter",
+					"request": {
+						"url": {
+							"raw": "{{host}}/api/shelter-utilization?group_by=shelter",
+							"auth": {},
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"shelter-utilization"
+							],
+							"query": [
+								{
+									"key": "group_by",
+									"value": "shelter",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [],
 						"body": {

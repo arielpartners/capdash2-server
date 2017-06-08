@@ -3,13 +3,20 @@
 #
 class UtilizationController < ApplicationController
   def show
-    results = UtilizationService.averages(utilization_params)
-    render json: results
+    if params[:group_by] == 'shelter'
+      results = ShelterUtilization.for_all_buildings(util_params)
+      render json: results
+    elsif params[:group_by] == 'case-type'
+      results = ShelterUtilization.for_all_case_types(util_params)
+      render json: results
+    else
+      render json: { error: 'Invalid group_by parameter' }, status: 400
+    end
   end
 
   private
 
-  def utilization_params
-    params.permit(:group_by, :period_type, :period_ending)
+  def util_params
+    params.permit(:period_type, :period_ending)
   end
 end

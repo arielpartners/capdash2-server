@@ -13,7 +13,7 @@ class ShelterDate
 
   # @param datetime in string or object form
   # @param cutoff_hour [Integer] integer representing cutoff hour
-  def initialize(datetime, cutoff_hour)
+  def initialize(datetime, cutoff_hour = 3)
     @cutoff_time = cutoff_hour
     datetime = DateTime.parse(datetime) if datetime.is_a? String
     @date = if datetime.hour < cutoff_hour

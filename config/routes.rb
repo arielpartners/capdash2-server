@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'user', to: 'users#current'
     get 'info', to: 'diagnostics#info'
     post 'user_token' => 'user_token#create'
-    get 'utilization', to: 'utilization#show'
+    get 'shelter-utilization', to: 'utilization#show'
     resources :users, only: :create
     resources :providers, only: [:index, :show]
     resources :shelters, only: [:show, :index] do

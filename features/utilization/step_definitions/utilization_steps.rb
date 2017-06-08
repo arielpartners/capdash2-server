@@ -42,11 +42,11 @@ end
 When(/^I ask for the following average utilization by calendar period$/) do |table|
   query  = table.hashes[0]
   params = {
-    group_by:      query['Group By'],
-    period_type:   query['Period Type'],
-    period_ending: query['Period Ending']
+    group_by:      query['Group By'].parameterize,
+    period_type:   query['Period Type'].parameterize,
+    period_ending: query['Period Ending'].parameterize
   }
-  get 'api/utilization', params
+  get 'api/shelter-utilization', params
 end
 # rubocop:enable Metrics/LineLength
 
