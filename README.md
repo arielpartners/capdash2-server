@@ -12,6 +12,7 @@ Capdash2 server is based on Ruby on Rails 5 API
 
 ## Major Technologies used
 
+  * [Ruby on Rails 5 API](http://edgeguides.rubyonrails.org/api_app.html) Optimizes rails for back-end APIs serving JSON. Included in RoR as of Rails 5.
   * [PosgreSQL](https://www.postgresql.org/) Open-source object-relational database
   * [knock](https://github.com/nsarno/knock) Gem for [jwt](https://jwt.io/)-based authentication
   * [Rubocop](https://github.com/bbatsov/rubocop) static code analyzer based on the Ruby style guide
@@ -19,7 +20,10 @@ Capdash2 server is based on Ruby on Rails 5 API
   * [cucumber-rails](https://github.com/cucumber/cucumber-rails) Cucumber implementation for ruby on rails
   * [rspec](http://rspec.info/) Testing framework for unit tests
   * [statsd-instrument](https://github.com/Shopify/statsd-instrument) StatsD client for Ruby apps
-
+  * [jbuilder](https://github.com/rails/jbuilder) generates JSON views
+  * [carrierwave](https://github.com/carrierwaveuploader/carrierwave) Handles file uploads for user avatars
+  * [mini-magick](https://github.com/minimagick/minimagick) image processor for use with carrierwave
+  * [yard](http://yardoc.org/) documentation generator
 
 ## Dependencies
 
