@@ -16,7 +16,7 @@
 #  slug        :string
 #
 class Classifier < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   belongs_to :parent, class_name: 'Classifier'
   has_many :children, class_name: 'Classifier', foreign_key: 'parent_id'
   before_save :ensure_slug

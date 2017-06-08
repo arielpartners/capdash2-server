@@ -42,7 +42,7 @@ end
 When(/^I ask for the following average utilization by calendar period$/) do |table|
   query  = table.hashes[0]
   params = {
-    group_by:      query['Group By'],
+    group_by:      query['Group By'].parameterize,
     period_type:   query['Period Type'],
     period_ending: query['Period Ending']
   }
@@ -53,6 +53,7 @@ end
 Then(/^The system should provide the following average utilization$/) do |table|
   results = JSON.parse(last_response.body)
   entries = table.hashes
+  # byebug
   entries.each do |entry|
     result = if table.headers.include? 'Facility'
                results.find { |r| entry['Facility'] == r['facility'] }

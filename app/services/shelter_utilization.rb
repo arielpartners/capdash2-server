@@ -22,10 +22,13 @@ class ShelterUtilization
     totals = ShelterUtilization.new
     totals.group = 'Total'
     totals.capacity = Place.count
-    avgs = Census.group(:shelter_building_id).average(:count)
-    total_avg_utilization = avgs.values.reduce(:+)
+    total_avg_utilization = utilization_averages.values.reduce(:+)
     totals.calculate_percentage(total_avg_utilization)
     totals
+  end
+
+  def self.utilization_averages
+    Census.group(:shelter_building).average(:count)
   end
 
   def initialize
@@ -38,8 +41,7 @@ class ShelterUtilization
     self.facility = shelter_building.shelter.name
     self.building = shelter_building.name
     self.address = shelter_building.address.line1
-    utilization = Census.where(shelter_building: shelter_building)
-                        .average(:count)
+    utilization = ShelterUtilization.utilization_averages[shelter_building]
     calculate_percentage(utilization)
     self
   end
@@ -47,9 +49,10 @@ class ShelterUtilization
   def for_group(group)
     self.group = group.name
     self.capacity = group.shelter_buildings.joins(:places).count(:places)
-    utilization = Census.includes(:shelter_building)
-                        .where('shelter_buildings.case_type_slug = ?',
-                               group.slug).average(:count)
+    avgs = ShelterUtilization.utilization_averages.select do |sb, _avg|
+      sb.case_type == group
+    end
+    utilization = avgs.values.reduce(:+)
     calculate_percentage(utilization)
     self
   end
