@@ -5,7 +5,7 @@
 # midnight. This is especially important because some clients may not
 # actually arrive at a shelter until after midnight.  ShelterDate takes a real
 # datetime, and a cutoff hour (integer representing hours past midnight) and
-# returns a "shelter date".
+# returns a "shelter date". If not provided, the cutoff hour defaults to 3am.
 #
 class ShelterDate
   include Comparable
