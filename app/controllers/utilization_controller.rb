@@ -13,10 +13,4 @@ class UtilizationController < ApplicationController
       render json: { error: 'Invalid group_by parameter' }, status: 400
     end
   end
-
-  private
-
-  def utilization_params
-    params.permit(:group_by)
-  end
 end
