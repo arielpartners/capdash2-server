@@ -53,7 +53,6 @@ end
 Then(/^The system should provide the following average utilization$/) do |table|
   results = JSON.parse(last_response.body)
   entries = table.hashes
-  # byebug
   entries.each do |entry|
     result = if table.headers.include? 'Facility'
                results.find { |r| entry['Facility'] == r['facility'] }
