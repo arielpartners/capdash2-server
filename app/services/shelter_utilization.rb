@@ -4,8 +4,8 @@
 # numbers by case-type or for the entire system.
 #
 class ShelterUtilization
-  attr_accessor :facility, :building, :address, :average_utilization,
-                :percentage, :capacity, :group, :from_date, :to_date
+  attr_accessor :facility, :building, :address, :average_utilization, :group,
+                :percentage, :capacity, :from_shelter_date, :to_shelter_date
 
   def self.for_all_buildings(params)
     ShelterBuilding.all.map do |sb|
@@ -34,13 +34,12 @@ class ShelterUtilization
   end
 
   def initialize(params = {})
-    period = params[:period_type] || :day
-    self.to_date = if params[:period_ending]
-                     Date.parse(params[:period_ending])
-                   else
-                     ShelterDate.new(Time.now).date
-                   end
-    self.from_date = to_date - 1.send(period)
+    self.to_shelter_date = ShelterDate.new(params[:period_ending]).date
+    if %w(month year).include? params[:period_type]
+      self.from_shelter_date = to_shelter_date - 1.send(params[:period_type])
+    else
+      self.from_shelter_date = to_shelter_date
+    end
     self.average_utilization = nil
     self.percentage = nil
   end
