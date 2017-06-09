@@ -27,9 +27,11 @@ ShelterBuilding.create!(
 
 life = Shelter.create!(name: 'LIFE', provider: dhs)
 a4 = Address.create!(line1: '78 Catherine Street', borough: 'manhattan', city: 'New York', state: 'NY', zip: '10038')
-ShelterBuilding.create!(
+catherine = ShelterBuilding.create!(
   address: a4, shelter: life, case_type: 'Family with Children'
 )
+life_fl = Floor.create!(shelter_building: catherine, name: '1')
+30.times { Unit.create!(compartment: life_fl) }
 
 aguila = Provider.create!(name: 'AGUILA')
 bna = Shelter.create!(name: 'BRONX NEIGHBORHOOD AGUILA', provider: aguila)
@@ -57,22 +59,28 @@ help_2fl = Floor.create!(shelter_building: help_building, name: '2')
 help_3fl = Floor.create!(shelter_building: help_building, name: '3')
 
 units = [
-  { name: '1A', floor: help_1fl, beds: 4 },
-  { name: '1B', floor: help_1fl, beds: 4 },
+  { name: '1A', floor: help_1fl, beds: 2 },
+  { name: '1B', floor: help_1fl, beds: 2 },
   { name: '1C', floor: help_1fl, beds: 4 },
   { name: '2A', floor: help_2fl, beds: 4 },
   { name: '2B', floor: help_2fl, beds: 4 },
   { name: '2C', floor: help_2fl, beds: 4 },
   { name: '3A', floor: help_3fl, beds: 4 },
+  { name: '3B', floor: help_3fl, beds: 4 },
+  { name: '3C', floor: help_3fl, beds: 4 },
 ]
+
+
 
 units.each do |unit|
   Unit.create!(name: unit[:name], compartment: unit[:floor], bed_count: unit[:beds])
 end
 
-Census.create!(shelter_building: help_building, count: 90, entered_by: 'kpeterson', census_time: '2016-06-05 8:00pm ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 95, entered_by: 'cstrong', census_time: '2016-06-05 10:00pm ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 97, entered_by: 'bgramman', census_time: '2016-06-06 12:00am ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 98, entered_by: 'bgramman', census_time: '2016-06-06 2:00am ', created_at: '2016-06-06 10:15am' )
-Census.create!(shelter_building: help_building, count: 103, entered_by: 'niorio', census_time: '2016-06-06 2:00am ', created_at: '2016-06-09 2:30pm' )
-Census.create!(shelter_building: help_building, count: 95, entered_by: 'kpeterson', census_time: '2016-06-06 8:00pm', created_at: '2016-06-07 10:15am' )
+Census.create!(shelter_building: help_building, count: 8, entered_by: 'kpeterson', census_time: '2016-06-05 8:00pm ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 7, entered_by: 'cstrong', census_time: '2016-06-05 10:00pm ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 9, entered_by: 'bgramman', census_time: '2016-06-06 12:00am ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: help_building, count: 6, entered_by: 'bgramman', census_time: '2016-06-06 2:00am ', created_at: '2016-06-06 10:15am' )
+Census.create!(shelter_building: catherine, count: 28, entered_by: 'niorio', census_time: '2016-06-09 2:00am ', created_at: '2016-06-10 10:15am' )
+Census.create!(shelter_building: catherine, count: 24, entered_by: 'cstrong', census_time: '2016-06-12 2:00am ', created_at: '2016-06-13 10:15am' )
+Census.create!(shelter_building: catherine, count: 30, entered_by: 'kpeterson', census_time: '2016-06-13 2:00am ', created_at: '2016-06-14 10:15am' )
+Census.create!(shelter_building: catherine, count: 27, entered_by: 'bgramman', census_time: '2016-06-14 2:00am ', created_at: '2016-06-15 10:15am' )
