@@ -6,6 +6,7 @@
 # actually arrive at a shelter until after midnight.  ShelterDate takes a real
 # datetime, and a cutoff hour (integer representing hours past midnight) and
 # returns a "shelter date". If not provided, the cutoff hour defaults to 3am.
+# Will provide the current shelterdate if datetime argument is nil.
 #
 class ShelterDate
   include Comparable
@@ -15,6 +16,7 @@ class ShelterDate
   # @param cutoff_hour [Integer] integer representing cutoff hour
   def initialize(datetime, cutoff_hour = 3)
     @cutoff_time = cutoff_hour
+    datetime ||= DateTime.now
     datetime = DateTime.parse(datetime) if datetime.is_a? String
     @date = if datetime.hour < cutoff_hour
               datetime.to_date - 1.day
